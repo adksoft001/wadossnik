@@ -31,4 +31,28 @@ class SimplePageController extends AbstractController
     {
         return $this->render('static_page/about.html.twig');
     }
+
+    #[Route('/pricing-coupons/', name: 'pricing-coupons')]
+    public function pricingCoupons(): Response
+    {
+        return $this->render('static_page/pricing-coupons.html.twig');
+    }
+
+    #[Route('/reviews/', name: 'reviews')]
+    public function reviews(): Response
+    {
+        return $this->render('static_page/reviews.html.twig');
+    }
+
+    #[Route('/certificates/', name: 'certificates')]
+    public function certificates(): Response
+    {
+        return $this->render('static_page/certificates.html.twig');
+    }
+
+    #[Route('/gallery/', name: 'gallery')]
+    public function gallery(): Response
+    {
+        return $this->render('static_page/gallery.html.twig');
+    }
 }

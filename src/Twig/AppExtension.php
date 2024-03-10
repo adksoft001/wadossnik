@@ -70,7 +70,7 @@ class AppExtension extends AbstractExtension
     /**
      * Поиск изображений примеров работ для услуг и дочерних услуг
      */
-    public function get_files_for_gallery(int $service_id): bool|array
+    public function get_files_for_gallery(): bool|array
     {
         $dir = getcwd() . '/img/our_works';
 
