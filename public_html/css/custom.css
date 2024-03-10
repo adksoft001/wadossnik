@@ -752,6 +752,11 @@
     max-width: 1320px;
 }
 
+.certificate-slider {
+    height: 40%;
+    max-width: 1320px;
+}
+
 .error-title {
     font-size: 30px;
     text-align: center;

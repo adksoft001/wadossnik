@@ -34,8 +34,6 @@ class AppExtension extends AbstractExtension
             new TwigFunction('get_all_services', [ServiceRuntime::class, 'get_all_services']),
             new TwigFunction('get_all_promo', [PromoRuntime::class, 'get_all_promo']),
             new TwigFunction('get_files_for_gallery', [$this, 'get_files_for_gallery']),
-            new TwigFunction('get_order_by_service', [ServiceRuntime::class, 'get_order_by_service']),
-            new TwigFunction('get_service_from_domain', [ServiceRuntime::class, 'get_service_from_domain']),
             new TwigFunction('get_current_service', [ServiceRuntime::class, 'get_current_service']),
             new TwigFunction('get_services_for_price_list', [ServiceRuntime::class, 'get_services_for_price_list']),
             new TwigFunction('get_service', [ServiceRuntime::class, 'get_service']),
@@ -80,7 +78,7 @@ class AppExtension extends AbstractExtension
 
         $f = [];
         foreach ($files as $k => $file) {
-            $f[$k] = 'img/our_works'.'/' . $file;
+            $f[$k] = 'img/our_works' . '/' . $file;
         }
 
         return $f;
@@ -162,10 +160,13 @@ class AppExtension extends AbstractExtension
      */
     public function get_description_brand_page(Service|SubService|ChildService|null $service, Brand $brand): string
     {
-        $serviceName = $this->get_service_name($service) ?? "Ремонт";
-        $name = $this->ucfirst($serviceName);
+        $serviceName = $this->get_service_name($service);
 
-        return $name . ' ' . $brand->getName() . ' цена. ⭐ Сервис ' . $brand->getRusName() . ' АМ Плюс в Москве. ✔️ Бесплатная диагностика ходовой. ✔️ Бесплатная замена масла и фильтров  ⏩ Автосервис ' . preg_replace('/[(]|[)]/', '', $brand->getRusName()) . ' в ВАО Москвы.';
+        if (!$serviceName) {
+            return 'Ремонт ' . $brand->getName() . ' цена. ⭐ Сервис ' . $brand->getRusName() . ' АМ Плюс в Москве. ✔️ Бесплатная диагностика ходовой. ✔️ Бесплатная замена масла и фильтров  ⏩ Автосервис ' . preg_replace('/[(]|[)]/', '', $brand->getRusName()) . ' в ВАО Москвы.';
+        } else {
+            return $serviceName . ' ' . $brand->getName() . ' в Москве. ⭐ Автосервис ' . $brand->getRusName() . ' АМ Плюс. ✔️ Бесплатная диагностика подвески. ⏩ ' . $serviceName . ' ' . preg_replace('/[(]|[)]/', '', $brand->getRusName()) . ' цена.';
+        }
     }
 
     /**
@@ -184,9 +185,12 @@ class AppExtension extends AbstractExtension
      */
     public function get_description_model_page(Service|SubService|ChildService|null $service, Model $model): string
     {
-        $serviceName = $this->get_service_name($service) ?? "Ремонт";
-
-        return $this->ucfirst($serviceName) . ' ' . $model->getBrand()->getName() . ' ' . $model->getName() . ' цена в Москве. ⭐ Автосервис ' . $model->getRusName() . ' АМ Плюс. ✔️ Бесплатная диагностика подвески. ✔️ Бесплатная замена масла и фильтров  ⏩ Сервис ' . preg_replace('/[(]|[)]/', '', $model->getRusName()) . ' в ВАО Москвы.';
+        $serviceName = $this->get_service_name($service);
+        if (!$serviceName) {
+            return 'Ремонт ' . $model->getBrand()->getName() . ' ' . $model->getName() . ' цена в Москве. ⭐ Автосервис ' . $model->getRusName() . ' АМ Плюс. ✔️ Бесплатная диагностика подвески. ✔️ Бесплатная замена масла и фильтров  ⏩ Сервис ' . preg_replace('/[(]|[)]/', '', $model->getRusName()) . ' в ВАО Москвы.';
+        } else {
+            return $serviceName . ' ' . $model->getBrand()->getName() . ' ' . $model->getName() . ' в Москве. ⭐ Автосервис ' . $model->getBrand()->getRusName() . ' АМ Плюс. ✔️ Бесплатная диагностика подвески. ⏩ ' . $serviceName . ' ' . preg_replace('/[(]|[)]/', '', $model->getRusName()) . ' цена.';
+        }
     }
 
     /**

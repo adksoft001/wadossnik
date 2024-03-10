@@ -31,18 +31,6 @@ class ServiceRuntime implements RuntimeExtensionInterface
             ->getResult();
     }
 
-    /**
-     * Получить объект услуги по домену для сетки сайтов
-     *
-     * @return Service|null
-     */
-    public
-    function get_service_from_domain(): ?Service
-    {
-        $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
-
-        return $this->serviceRepository->findOneBy(['slug' => $hostName]);
-    }
 
     /**
      * Получить текущий объект услуги, дочерней услуги

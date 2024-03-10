@@ -14,15 +14,21 @@
                 <a href="#" class="mbtn mbtng modal-form-open" data-name="Запись на ремонт / ТО" data-type="repaire">Записаться
                     в автосервис</a>
             </div>
-            {% set brandUrl =  brand.url ?? model.brand.url %}
+
+            {% if model is defined %}
+                {% set url =  model.brand.url~'/'~model.url %}
+            {% else %}
+                {% set url =  brand.url %}
+            {% endif %}
+
 
             <div class="col-xl-3 col-lg-4  remontblock-swrap remontblock-swrap-b1">
                 {% for service in services %}
                     {% if loop.index < 10 %}
-                        {% if service.slug == 'remont-korobki-dsg' and brandUrl not in ['volkswagen', 'audi', 'skoda'] %}
+                        {% if service.slug == 'remont-korobki-dsg' and url not in ['volkswagen', 'audi', 'skoda'] %}
 
                         {% else %}
-                            <a href="/{{ brandUrl }}/{{ service.slug }}"
+                            <a href="/{{ url }}/{{ service.slug }}"
                                class="{{ service.slug }}">{{ service.name }}</a>
                         {% endif %}
                     {% endif %}
@@ -32,10 +38,10 @@
             <div class="col-xl-3 col-lg-4 col-md-6 remontblock-swrap remontblock-swrap-b2">
                 {% for service in services %}
                     {% if loop.index > 10 %}
-                        {% if service.slug == 'remont-korobki-dsg' and brandUrl not in ['volkswagen', 'audi', 'skoda'] %}
+                        {% if service.slug == 'remont-korobki-dsg' and url not in ['volkswagen', 'audi', 'skoda'] %}
 
                         {% else %}
-                            <a href="/{{ brandUrl }}/{{ service.slug }}"
+                            <a href="/{{ url }}/{{ service.slug }}"
                                class="{{ service.slug }}">{{ service.name }}</a>
                         {% endif %}
                     {% endif %}

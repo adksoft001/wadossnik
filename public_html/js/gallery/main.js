@@ -210,6 +210,33 @@ let mySwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider1, {
     }
   }
 });
+
+const slider5 = document.querySelector('.certificate-slider');
+let mySwiper5 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider5, {
+  slidesPerView: 2,
+  spaceBetween: 15,
+  loop: true,
+  // pagination: {
+  // 	el: '.swiper-pagination',
+  // 	clickable: true,
+  // },
+  // autoplay: {
+  // 	delay: 5000,
+  // },
+  navigation: {
+    nextEl: '.gallery__swiper-button-next',
+    prevEl: '.gallery__swiper-button-prev'
+  },
+  breakpoints: {
+    1025: {
+      slidesPerView: 3
+    },
+    768: {
+      slidesPerView: 2
+    }
+  }
+});
+
 const slider2 = document.querySelector('.video-slider');
 let mySwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider2, {
   slidesPerView: 1,

@@ -1,11 +1,11 @@
 {% set brand_name = '' %}
 {% if brand is defined %}
-    {% set brand_name = brand.name %}
+    {% set brand_name = brand.name~' '~brand.rusName %}
 {% endif %}
 
 {% set model_name = '' %}
 {% if model is defined %}
-    {% set model_name = model.brand.name~' '~model.name %}
+    {% set model_name = model.brand.name~' '~model.name~' '~model.rusName %}
 {% endif %}
 
 <div class="block1">

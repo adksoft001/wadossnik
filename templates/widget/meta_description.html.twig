@@ -1,9 +1,5 @@
 {% if brand is defined %}
-    {% if app.request.attributes.get('_route') == 'brand_marka_service' %}
-        <meta name="description" content="{{ service.name~' '~brand.name }} в Москве ✅ Специализированный автосервис в Москве. ✅ Бесплатный эвакуатор. ✅ Гарантия 2 года. ⭐ {{ service.name~' '~brand.rusName }}."/>
-    {% else %}
-        <meta name="description" content="{{ get_description_brand_page(service_entity, brand) }}"/>
-    {% endif %}
+    <meta name="description" content="{{ get_description_brand_page(service_entity, brand) }}"/>
 {% elseif model is defined %}
     <meta name="description" content="{{ get_description_model_page(service_entity, model) }}"/>
 {% elseif is_simple_page(app.request.pathInfo) %}

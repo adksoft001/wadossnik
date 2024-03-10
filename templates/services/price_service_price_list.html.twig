@@ -8,8 +8,13 @@
             {% set service = service.service ?? service %}
         {% endif %}
 
-
-        {{ include ('widget/price_category_item.html.twig') }}
+        {% if model is defined %}
+            {{ include ('widget/model_price_category_item.html.twig') }}
+        {% elseif brand is defined %}
+            {{ include ('widget/brand_service_price_category_item.html.twig') }}
+        {% else %}
+            {{ include ('widget/price_category_item.html.twig') }}
+        {% endif %}
 
         <div class="under_price">
             <div class="important_block">

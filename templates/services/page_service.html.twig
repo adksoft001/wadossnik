@@ -9,10 +9,6 @@
         {{ include('blocks/raiting.html.twig') }}
     </div>
     {{ include('services/price_service_price_list.html.twig') }}
-
-    {% if service.seoText is defined and service.seoText != '' %}
-        {{ include('blocks/seo_text.html.twig') }}
-    {% endif %}
     {{ include('blocks/certificate.html.twig') }}
 
 {% endblock %}
