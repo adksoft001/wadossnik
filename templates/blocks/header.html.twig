@@ -106,17 +106,8 @@
                             {% for service in services %}
                                 <div class="spis-block col-md-6">
                                     <img class="img-svg" src="{{ asset('img/serviceIcon/'~service.slug~'.svg') }}">
-                                    {% if service.isDomain %}
-                                        {% set slug = service.slug %}
-                                        {% set domain = get_domain_zone(slug) %}
-                                        <a href="https://{{ service.slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'}) }}{{ domain }}">{{ service.name }}</a>
-                                    {% else %}
-                                        {% set slug = service.slug %}
-                                        {% set domain = get_domain_zone(slug) %}
                                         <a href="/{{ service.slug }}">{{ service.name }}</a>
-                                    {% endif %}
                                 </div>
-
                             {% endfor %}
                         </div>
                     </div>

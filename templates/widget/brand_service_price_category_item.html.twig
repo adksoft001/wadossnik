@@ -27,11 +27,9 @@
                         {{ ucfirst(subService.name) }}
                     {% elseif subService.service.isDomain is defined and subService.service.isDomain %}
                         {% set slug = subService.service.slug %}
-                        {% set domain = get_domain_zone(slug) %}
                         <a class="price_path" href="https://{{ slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'}) }}{{ domain }}/{{ slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'})~'-'~brand.url }}/{{ subService.slug }}">{{ ucfirst(subService.name) }}</a>
                     {% else %}
                         {% set slug = subService.slug %}
-                        {% set domain = get_domain_zone(slug) %}
                         <a class="price_path"
                            href="/{{ brand.url }}/{{ subService.slug }}">{{ ucfirst(subService.name) }}</a>
                     {% endif %}

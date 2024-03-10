@@ -6,17 +6,7 @@
         <div class="cenablock-card-ten">
             <div class="cenablock-card-abs">
                 <div class="cenablock-card-abs-text">
-                    {% if service.isDomain %}
-
-                        {% set slug = service.slug %}
-                        {% set domain = get_domain_zone(slug) %}
-
-                        <a href="https://{{ service.slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'}) }}{{ domain }}">
-                            {{ service.name }}</a>
-                    {% else %}
-                        {% set domain = get_domain_zone(service.slug) %}
-                        <a href="{{ path('dynamic_pages', {token: service.slug~'/'}) }}">{{ service.name }}</a>
-                    {% endif %}
+                    <a href="{{ path('dynamic_pages', {token: service.slug~'/'}) }}">{{ service.name }}</a>
                 </div>
                 <div class="cenablock-card-abs-btnwrap">
                     <a href="#price-{{ service.slug }}" class="mbtn mbtn2 price-button" id="{{ service.slug }}">Цена</a>

@@ -15,8 +15,8 @@
 ###< phpunit/phpunit ###
 
 ###> liip/imagine-bundle ###
-/public/media/cache/
+/public_html/media/cache/
 ###< liip/imagine-bundle ###
 
-public/img
-public/video
+/public_html/img
+/public_html/video

@@ -21,11 +21,9 @@ class AppExtension extends AbstractExtension
             new TwigFunction('is_simple_page', [$this, 'is_simple_page']),
             new TwigFunction('get_description_simple_page', [$this, 'get_description_simple_page']),
             new TwigFunction('get_title_simple_page', [$this, 'get_title_simple_page']),
-            new TwigFunction('get_title_special_site', [$this, 'get_title_special_site']),
             new TwigFunction('get_title_basic_site', [$this, 'get_title_basic_site']),
             new TwigFunction('get_title_brand_page', [$this, 'get_title_brand_page']),
             new TwigFunction('get_title_model_page', [$this, 'get_title_model_page']),
-            new TwigFunction('is_special_site', [$this, 'is_special_site']),
             new TwigFunction('get_description_special_site', [$this, 'get_description_special_site']),
             new TwigFunction('get_description_basic_site', [$this, 'get_description_basic_site']),
             new TwigFunction('get_description_brand_page', [$this, 'get_description_brand_page']),
@@ -54,14 +52,6 @@ class AppExtension extends AbstractExtension
         };
     }
 
-    public function get_domain_zone(string $slug): string
-    {
-        return match ($slug) {
-            'remont-avtokondicionerov', 'tehnicheskoe-obsluzhivanie' => '.ru',
-            default => '.com',
-        };
-    }
-
     /**
      * Подсчет работы норма часа
      */
@@ -84,32 +74,16 @@ class AppExtension extends AbstractExtension
      */
     public function get_files_for_gallery(int $service_id): bool|array
     {
-        $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
-
-        $dir = getcwd() . '/img/gallery/' . $hostName;
+        $dir = getcwd() . '/img/our_works';
 
         $files = array_diff(scandir($dir), array('..', '.'));
 
-        if (count($files) <= $service_id) {
-            $num = round(($service_id - 127) / 2);
-        } else {
-            $num = $service_id;
-        }
-
-        settype($num, 'integer');
-
-        if ($num % 2 == 0) {
-            $offset = $num + 7;
-        } else {
-            $offset = $num - 7;
-        }
-
         $f = [];
         foreach ($files as $k => $file) {
-            $f[$k] = 'img/gallery/' . $hostName . '/' . $file;
+            $f[$k] = 'img/our_works'.'/' . $file;
         }
 
-        return array_slice($f, $offset, 7);
+        return $f;
     }
 
     /**
@@ -124,33 +98,6 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * Проверка принадлежности услуги для специализированного сайта из сетки сайтов
-     */
-    public function is_service_from_domain_special_site(?Service $service): bool
-    {
-        if (!$service) {
-            return false;
-        }
-
-        return match ($service->getSlug()) {
-            'remont-rulevyh-reek', 'remont-avtokondicionerov', 'tehnicheskoe-obsluzhivanie', 'remont-akpp-moskva' => true,
-            default => false,
-        };
-    }
-
-    /**
-     * Проверка является ли сайт специализированным из сетки сайтов
-     */
-    public function is_special_site(): bool
-    {
-        $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
-
-        return match ($hostName) {
-            'remont-rulevyh-reek', 'remont-avtokondicionerov', 'tehnicheskoe-obsluzhivanie', 'remont-akpp-moskva' => true,
-            default => false,
-        };
-    }
 
     /**
      * Поверка является ли страница статичной
@@ -192,32 +139,6 @@ class AppExtension extends AbstractExtension
             '/promo/' => "Наши акции - Автосервис Моторист по " . str_replace('ремонт', 'ремонту', mb_strtolower($serviceName)),
         };
 
-    }
-
-    /**
-     * Генерация мета-тегов description услуг и дочерних услуг специализированных сайтов
-     */
-    public function get_description_special_site(Service|SubService|ChildService $service): string
-    {
-        $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
-
-        return match ($hostName) {
-            'tehnicheskoe-obsluzhivanie', 'remont-akpp-moskva' => $service->getName() . ' ✅ Специализированный автосервис в Москве. ✅ Бесплатный эвакуатор. ✅ Гарантия 2 года. ⭐ ' . $service->getName() . ' ⏰ Записаться в техцентр «Моторист» ☎️ +7(499)288-76-91.',
-            'remont-rulevyh-reek' => $service->getName() . ' ✅ Специализированный автосервис в Москве. ✅ Бесплатный эвакуатор при ремонте. ✅ Гарантия 1 год. ⭐ ' . $service->getName() . ' цена ⏰ Записаться в техцентр «Моторист» ☎️ +7(499)288-76-91.',
-            'remont-avtokondicionerov' => $service->getName() . ' ✅ Специализированный автосервис в Москве. ✅ Качественное оборудование. ✅ Гарантия 1 год. ⭐ ' . $service->getName() . ' цена ⏰ Записаться в техцентр «Моторист» ☎️ +7(499)288-76-91.',
-        };
-    }
-
-    /**
-     * Генерация мета-тегов title услуг и дочерних услуг специализированных сайтов
-     */
-    public function get_title_special_site(Service|SubService|ChildService $service): string
-    {
-        $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
-
-        return match ($hostName) {
-            'remont-rulevyh-reek', 'remont-avtokondicionerov', 'tehnicheskoe-obsluzhivanie', 'remont-akpp-moskva' => $service->getName() . ' цена в Москве - автосервис Моторист',
-        };
     }
 
     /**

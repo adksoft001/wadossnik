@@ -18,18 +18,22 @@
 
             <div class="col-xl-3 col-lg-4  remontblock-swrap remontblock-swrap-b1">
                 {% for service in services %}
-                    {% set domain = get_domain_zone(service.slug) %}
                     {% if loop.index < 10 %}
-                        <a href="/{{ brandUrl }}/{{ service.slug }}" class="{{ service.slug }}">{{ service.name }}</a>
+                        {% if service.slug == 'remont-korobki-dsg' and brandUrl not in ['volkswagen', 'audi', 'skoda'] %}
+
+                        {% else %}
+                            <a href="/{{ brandUrl }}/{{ service.slug }}"
+                               class="{{ service.slug }}">{{ service.name }}</a>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
 
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 remontblock-swrap remontblock-swrap-b2">
                 {% for service in services %}
-                    {% set domain = get_domain_zone(service.slug) %}
-                    {% if loop.index > 11 %}
-                        {% if service.slug == 'remont-korobki-dsg' and brandUrl not in ['Volkswagen', 'Audi', 'Skoda'] %}
+                    {% if loop.index > 10 %}
+                        {% if service.slug == 'remont-korobki-dsg' and brandUrl not in ['volkswagen', 'audi', 'skoda'] %}
+
                         {% else %}
                             <a href="/{{ brandUrl }}/{{ service.slug }}"
                                class="{{ service.slug }}">{{ service.name }}</a>

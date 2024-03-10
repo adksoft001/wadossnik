@@ -21,42 +21,14 @@ class Service
 
     #[ORM\Column(length: 255)]
     private string $slug = '';
-
     #[ORM\OneToMany(mappedBy: 'service', targetEntity: SubService::class)]
     private Collection $subServices;
-
-    #[ORM\Column]
-    private bool $is_domain = true;
 
     #[ORM\Column(type: Types::TEXT)]
     private string $seo_text = '';
 
-    #[ORM\Column]
-    private int $order_by_remont_forsunki = 0;
-
-    #[ORM\Column]
-    private int $order_by_remont_dizelnogo_dvigatelya = 0;
-
-    #[ORM\Column]
-    private int $order_by_wadossnk = 0;
-
-    #[ORM\Column]
-    private int $order_by_remont_tnvd = 0;
-
-    #[ORM\Column]
-    private int $order_by_remont_turbiny = 0;
-
-    #[ORM\Column]
-    private int $order_by_remont_rulevyh_reek = 0;
-
-    #[ORM\Column]
-    private int $order_by_remont_avtokondicionerov = 0;
-
-    #[ORM\Column]
-    private int $order_by_tehnicheskoe_obsluzhivanie = 0;
-
-    #[ORM\Column]
-    private int $order_by_remont_akpp_moskva = 0;
+    #[ORM\Column(name: 'order_by')]
+    private int $orderBy = 0;
 
     public function __construct()
     {
@@ -122,18 +94,6 @@ class Service
         return $this;
     }
 
-    public function isIsDomain(): bool
-    {
-        return $this->is_domain;
-    }
-
-    public function setIsDomain(bool $is_domain): self
-    {
-        $this->is_domain = $is_domain;
-
-        return $this;
-    }
-
     public function getSeoText(): string
     {
         return $this->seo_text;
@@ -146,112 +106,20 @@ class Service
         return $this;
     }
 
-    public function getOrderByRemontForsunki(): int
+    /**
+     * @return int
+     */
+    public function getOrderBy(): int
     {
-        return $this->order_by_remont_forsunki;
+        return $this->orderBy;
     }
 
-    public function setOrderByRemontForsunki(int $order_by_remont_forsunki): self
+    /**
+     * @param int $orderBy
+     */
+    public function setOrderBy(int $orderBy): void
     {
-        $this->order_by_remont_forsunki = $order_by_remont_forsunki;
-
-        return $this;
-    }
-
-    public function getOrderByRemontDizelnogoDvigatelya(): int
-    {
-        return $this->order_by_remont_dizelnogo_dvigatelya;
-    }
-
-    public function setOrderByRemontDizelnogoDvigatelya(int $order_by_remont_dizelnogo_dvigatelya): self
-    {
-        $this->order_by_remont_dizelnogo_dvigatelya = $order_by_remont_dizelnogo_dvigatelya;
-
-        return $this;
-    }
-
-    public function getOrderByRemontDvigatelya(): int
-    {
-        return $this->order_by_remont_dvigatelya;
-    }
-
-    public function setOrderByRemontDvigatelya(int $order_by_remont_dvigatelya): self
-    {
-        $this->order_by_remont_dvigatelya = $order_by_remont_dvigatelya;
-
-        return $this;
-    }
-
-    public function getOrderByRemontTnvd(): int
-    {
-        return $this->order_by_remont_tnvd;
-    }
-
-    public function setOrderByRemontTnvd(int $order_by_remont_tnvd): self
-    {
-        $this->order_by_remont_tnvd = $order_by_remont_tnvd;
-
-        return $this;
-    }
-
-    public function getOrderByRemontTurbiny(): int
-    {
-        return $this->order_by_remont_turbiny;
-    }
-
-    public function setOrderByRemontTurbiny(int $order_by_remont_turbiny): self
-    {
-        $this->order_by_remont_turbiny = $order_by_remont_turbiny;
-
-        return $this;
-    }
-
-    public function getOrderByRemontRulevyhReek(): int
-    {
-        return $this->order_by_remont_rulevyh_reek;
-    }
-
-    public function setOrderByRemontRulevyhReek(int $order_by_remont_rulevyh_reek): self
-    {
-        $this->order_by_remont_rulevyh_reek = $order_by_remont_rulevyh_reek;
-
-        return $this;
-    }
-
-    public function getOrderByRemontAvtokondicionerov(): int
-    {
-        return $this->order_by_remont_avtokondicionerov;
-    }
-
-    public function setOrderByRemontAvtokondicionerov(int $order_by_remont_avtokondicionerov): self
-    {
-        $this->order_by_remont_avtokondicionerov = $order_by_remont_avtokondicionerov;
-
-        return $this;
-    }
-
-    public function getOrderByRemontAkppMoskva(): ?int
-    {
-        return $this->order_by_remont_akpp_moskva;
-    }
-
-    public function setOrderByRemontAkppMoskva(int $order_by_remont_akpp_moskva): self
-    {
-        $this->order_by_remont_akpp_moskva = $order_by_remont_akpp_moskva;
-
-        return $this;
-    }
-
-    public function getOrderByTehnicheskoeObsluzhivanie(): ?int
-    {
-        return $this->order_by_tehnicheskoe_obsluzhivanie;
-    }
-
-    public function setOrderByTehnicheskoeObsluzhivanie(int $order_by_tehnicheskoe_obsluzhivanie): self
-    {
-        $this->order_by_tehnicheskoe_obsluzhivanie = $order_by_tehnicheskoe_obsluzhivanie;
-
-        return $this;
+        $this->orderBy = $orderBy;
     }
 
 

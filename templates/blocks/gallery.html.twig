@@ -1,8 +1,4 @@
-{% if service is not defined %}
-    {% set files = get_files_for_gallery(service_from_domain.id) %}
-{% else %}
-    {% set files = get_files_for_gallery(service.id) %}
-{% endif %}
+{% set files = get_files_for_gallery(service.id) %}
 
 <section class="gallery">
     <h2 class="zag">Примеры наших работ</h2>

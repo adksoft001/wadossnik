@@ -21,25 +21,12 @@ class ServiceRuntime implements RuntimeExtensionInterface
      * Получить все услуги,
      * если $is_service_from_domain = true, получить дочерние услуги у спец.сайта
      */
-    public function get_all_services(bool $is_main_site = true): array
+    public function get_all_services(): array
     {
-        $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
-        $fieldName = str_replace('-', '_', 's.order_by_' . $hostName);
-
         $qb = $this->serviceRepository->createQueryBuilder('s');
 
-        $services = $qb
-            ->orderBy($fieldName, 'ASC');
-
-        if (!$is_main_site) {
-            $services = $qb
-                ->andWhere('s.is_domain =:is_domain')
-                ->andWhere($qb->expr()->notIn('s.slug', [$hostName]))
-                ->setParameter('is_domain', true)
-                ->orderBy($fieldName, 'ASC');
-        }
-
-        return $services
+        return $qb
+            ->orderBy('s.orderBy', 'ASC')
             ->getQuery()
             ->getResult();
     }
@@ -49,7 +36,8 @@ class ServiceRuntime implements RuntimeExtensionInterface
      *
      * @return Service|null
      */
-    public function get_service_from_domain(): ?Service
+    public
+    function get_service_from_domain(): ?Service
     {
         $hostName = preg_replace('/\.[a-z]+/', '', $_SERVER['HTTP_HOST']);
 
@@ -59,7 +47,8 @@ class ServiceRuntime implements RuntimeExtensionInterface
     /**
      * Получить текущий объект услуги, дочерней услуги
      */
-    public function get_current_service(SubService|ChildService|Service $service): Service|SubService|ChildService|null
+    public
+    function get_current_service(SubService|ChildService|Service $service): Service|SubService|ChildService|null
     {
         if ($service instanceof SubService) {
             if ($service->getChildServices()->count()) {
@@ -82,7 +71,8 @@ class ServiceRuntime implements RuntimeExtensionInterface
     /**
      * Получить дочерние услуги у родительской услуги
      */
-    public function get_services_for_price_list(SubService|ChildService|Service $service): PersistentCollection|null
+    public
+    function get_services_for_price_list(SubService|ChildService|Service $service): PersistentCollection|null
     {
         if ($service instanceof SubService) {
             if ($service->getChildServices()->count()) {
@@ -102,7 +92,8 @@ class ServiceRuntime implements RuntimeExtensionInterface
         return null;
     }
 
-    public function get_service(string $slug): ?Service
+    public
+    function get_service(string $slug): ?Service
     {
         return $this->serviceRepository->findOneBy(['slug' => $slug]);
     }
