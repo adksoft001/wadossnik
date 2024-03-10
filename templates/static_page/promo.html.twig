@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="zag">Акции на {% if service_from_domain %}{{ service_from_domain.name | replace({ ' двигателя': ''}) | lower }}{% else %}ремонт{% endif %}
+        двигателя</h1>
+
+    {{ include('blocks/promo.html.twig') }}
+
+{% endblock %}

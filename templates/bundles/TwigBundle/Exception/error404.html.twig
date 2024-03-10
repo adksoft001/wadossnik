@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <style>
+        .block1 {
+            background: url({{ asset('img/2.jpg') | imagine_filter('thumbnail_block_img') }}) center no-repeat;
+            background-size: cover;
+        }
+
+        @media (max-width: 576px) {
+            .block1 {
+                background: url({{ asset('img/mobilka-fon.jpg') | imagine_filter('thumbnail_mobile_img') }});
+            }
+        }
+    </style>
+
+    <div class="block1">
+        <div class="block1-wraper">
+            <div class="container ">
+                <h1>Данной страницы не существует</h1>
+                <p class="error-title">Вернутся на <a style="color: #a0ca4c" href="{{ path('app_home_index') }}">главную</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

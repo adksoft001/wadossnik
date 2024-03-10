@@ -1,0 +1,299 @@
+$orang: #ff8e00;
+$orang2: #ffcc00;
+$black: #232323;
+$white: #fff;
+$red: #D52B1E;
+$red2: #ff2400;
+$blue: #0039A6;
+$blue2: #047bbf;
+$green: #a0ca4c;
+
+.remontblock {
+  &-img {
+    align-self: center;
+
+    .mbtn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  &-swrap {
+    a {
+      display: block;
+      padding-left: 30px;
+      font-size: 15.5px;
+      margin-bottom: 10px;
+      position: relative;
+      transition: all 0.5s;
+
+      &:hover {
+        color: $blue;
+        transition: all 0.5s;
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: url("/img/icon/brakerepair.svg") center no-repeat;
+        background-size: contain;
+      }
+    }
+
+    .diagnostika-dvigatelya:before {
+      background: url("/img/serviceIcon/diagnostika-dvigatelya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .kapitalnyj-remont-dvigatelya:before {
+      background: url("/img/serviceIcon/kapitalnyj-remont-dvigatelya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .promyvka-sistem-avtomobilya:before {
+      background: url("/img/serviceIcon/promyvka-sistem-avtomobilya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .regulirovka-klapanov:before {
+      background: url("/img/serviceIcon/regulirovka-klapanov.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-dizelnogo-dvigatelya:before {
+      background: url("/img/serviceIcon/remont-dizelnogo-dvigatelya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-forsunki:before {
+      background: url("/img/serviceIcon/remont-forsunki.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-gbc-dvigatelya:before {
+      background: url("/img/serviceIcon/remont-gbc-dvigatelya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-sistemy-ohlazhdeniya:before {
+      background: url("/img/serviceIcon/remont-sistemy-ohlazhdeniya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-tnvd:before {
+      background: url("/img/serviceIcon/remont-tnvd.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-toplivnoy-sistemy:before {
+      background: url("/img/serviceIcon/remont-toplivnoy-sistemy.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-turbiny:before {
+      background: url("/img/serviceIcon/remont-turbiny.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .tekhnicheskoe-obsluzhivanie-dvigatelya:before {
+      background: url("/img/serviceIcon/tekhnicheskoe-obsluzhivanie-dvigatelya.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-avtokondicionerov:before {
+      background: url("/img/serviceIcon/remont-avtokondicionerov.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .remont-rulevyh-reek:before {
+      background: url("/img/serviceIcon/remont-rulevyh-reek.svg") center no-repeat;
+      background-size: contain;
+    }
+    .tehnicheskoe-obsluzhivanie:before {
+      background: url("/img/serviceIcon/tehnicheskoe-obsluzhivanie.svg") center no-repeat;
+      background-size: contain;
+    }
+    .remont-akpp-moskva:before {
+      background: url("/img/serviceIcon/remont-akpp-moskva.svg") center no-repeat;
+      background-size: contain;
+    }
+
+
+    //.bephoto:before {
+    //    background: url("/img/icon/photo.svg") center no-repeat;
+    //    background-size: contain;
+    //}
+
+    .becalc:before {
+      background: url("/img/icon/calc.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .bezapchasty:before {
+      background: url("/img/icon/zapchasty_bl.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .bezapchastyrd:before {
+      background: url("/img/icon/zapchasty.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .bediagnost:before {
+      background: url("/img/icon/pen-red.svg") center no-repeat;
+      background-size: contain;
+    }
+
+    .becons:before {
+      background: url("/img/icon/vopros-red.svg") center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+@media(min-width: 1800px) {
+  .remontblock {
+    &-img {
+      align-self: center;
+
+      .mbtn {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        padding: 15px;
+      }
+    }
+
+    &-swrap {
+      a {
+        display: block;
+        padding-left: 45px;
+        font-size: 18px;
+        margin-bottom: 14px;
+        position: relative;
+
+        &:before {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .remontblock {
+    &-img {
+      width: 33.33%;
+      margin-left: 33.33%;
+      margin-right: 33.33%;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .remontblock {
+    &-img {
+      width: 50%;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-bottom: 30px;
+      text-align: center;
+
+      img {
+        max-width: 300px;
+      }
+
+      .mbtn {
+        max-width: 300px;
+      }
+    }
+
+    &-swrap {
+      &-b1 {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .remontblock {
+    &-img {
+      width: 100%;
+      margin-bottom: 30px;
+
+      img {
+        max-width: 300px;
+      }
+
+      .mbtn {
+        max-width: 300px;
+      }
+    }
+
+    &-swrap {
+      &-b1 {
+        width: 50%;
+      }
+
+      &-b2 {
+        width: 50%;
+      }
+
+      &-b3 {
+        display: none;
+      }
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .remontblock {
+    &-img {
+      width: 100%;
+      margin-bottom: 30px;
+
+      img {
+        max-width: 300px;
+      }
+
+      .mbtn {
+        max-width: 300px;
+      }
+    }
+
+    &-swrap {
+      max-width: 260px;
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 15.5px;
+
+      &-b1 {
+        width: 100%;
+      }
+
+      &-b2 {
+        width: 100%;
+      }
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}

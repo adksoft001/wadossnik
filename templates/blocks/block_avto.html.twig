@@ -1,0 +1,56 @@
+<div class="remontblock block">
+
+    <div class="container container2">
+        <h2 class="zag">{{ include('widget/title_h2.html.twig') }}</h2>
+        <div class="row myrow">
+            <div class="remontblock-img col-xl-3 ">
+                {% if brand is defined %}
+                    {% set img = 'img/cars/'~brand.url~'/big.png' %}
+                {% elseif model is defined %}
+                    {% set model_name = model.url|lower %}
+                    {% set img = 'img/cars/'~model.brand.url~'/'~model_name~'/big.png' %}
+                {% endif %}
+                <img src="{{ asset(img) | imagine_filter('thumbnail_car_img') }}" alt="*">
+                <a href="#" class="mbtn mbtng modal-form-open" data-name="Запись на ремонт / ТО" data-type="repaire">Записаться
+                    в автосервис</a>
+            </div>
+            {% set brandUrl =  brand.url ?? model.brand.url %}
+
+            <div class="col-xl-3 col-lg-4  remontblock-swrap remontblock-swrap-b1">
+                {% for service in services %}
+                    {% set domain = get_domain_zone(service.slug) %}
+                    {% if loop.index < 10 %}
+                        <a href="/{{ brandUrl }}/{{ service.slug }}" class="{{ service.slug }}">{{ service.name }}</a>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 remontblock-swrap remontblock-swrap-b2">
+                {% for service in services %}
+                    {% set domain = get_domain_zone(service.slug) %}
+                    {% if loop.index > 11 %}
+                        {% if service.slug == 'remont-korobki-dsg' and brandUrl not in ['Volkswagen', 'Audi', 'Skoda'] %}
+                        {% else %}
+                            <a href="/{{ brandUrl }}/{{ service.slug }}"
+                               class="{{ service.slug }}">{{ service.name }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 remontblock-swrap remontblock-swrap-b3">
+                {#                <a href="#" class="bephoto modal-form-open" data-name="Оценить стоимость ремонта по фото" #}
+                {#                   data-type="photo">Оценить стоимость ремонта по фото</a> #}
+                <a href="#" class="becalc modal-form-open" data-name="Рассчитать стоимость работы"
+                   data-type="calculate">Рассчитать стоимость работы</a>
+                <a href="#" class="bezapchastyrd modal-form-open" data-name="Заказать запчасти" data-type="zapchast">Заказать
+                    запчасти</a>
+                <a href="#" class="bediagnost modal-form-open" data-name="Записаться на диагностику"
+                   data-type="diagnostic">Записаться на диагностику</a>
+                <a href="#" class="becons modal-form-open" data-name="Получить консультацию" data-type="consultation">Получить
+                    консультацию</a>
+                <a href="#" class="becons modal-form-zaloba" data-name="ОСТАВИТЬ ЖАЛОБУ" data-type="consultation">Оставить
+                    жалобу</a>
+            </div>
+        </div>
+    </div>
+</div>

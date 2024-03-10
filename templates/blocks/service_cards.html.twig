@@ -1,0 +1,25 @@
+<div class="block cenablock">
+    <div class="container container2">
+        {% if app.request.pathInfo == '/services/' %}
+            <h1 class="zag">Услуги
+                на {% if service_from_domain %}{{ service_from_domain.name | replace({ ' двигателя': ''}) | lower }}{% else %}ремонт{% endif %}
+                двигателя</h1>
+        {% else %}
+            {% set head_element = 'h1' %}
+            {% if app.request.pathInfo == '/' %}
+                {% set head_element = 'h2' %}
+            {% endif %}
+            <{{ head_element }} class="zag">Услуги и цены</{{ head_element }}>
+        {% endif %}
+        <div class="row">
+            {% for service in services %}
+                {{ include('widget/card_service.html.twig') }}
+            {% endfor %}
+        </div>
+        {% if services|length > 8 %}
+            <div class="cenablock-pokwrap">
+                <div class="cenablock-pokbtn mbtn mbtn2 mbtn2g">Развернуть больше услуг</div>
+            </div>
+        {% endif %}
+    </div>
+</div>

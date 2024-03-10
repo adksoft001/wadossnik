@@ -1,0 +1,127 @@
+<header class="header-page">
+    <div class="header-page__top">
+        <div class="container container2">
+            <div class="header-page__inner">
+                <div class="d-block">
+                    <a href="{{ path('app_home_index') }}">
+                        <img src="{{ asset('img/am-logo.png') }}" alt="лого">
+                    </a>
+
+                </div>
+
+                <div class="header-center-addrw">
+                    <div class="header-center-addrw-text">
+                        <div class="header-center-addrw-close"></div>
+                        <div class="header-center-addrw-text-zag addr-sev mt-2">Москва ул. Ибрагимова, 31-а</div>
+                        <ul class="text-left">
+                            <li>
+                                <a class="d-inline" href="tel:+74957434544">+7 (495) 743-45-44</a> - Слесарный цех
+                            </li>
+                            <li>
+                                <a class="d-inline" href="tel:+74957740705">+7 (495) 774-07-05</a> - Кузовной цех
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="header-phones">
+
+                    <div class="header-center-schedule font-weight-bold">Режим работы:<br>Ежедневно с 09:00 до 21:00</div>
+
+                    <a href="#" class="mbtn mbtng modal-form-open" data-name="Заказать звонок" data-type="consultation"
+                       tabindex="0">Получить консультацию</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="header-page__nav">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar__mobile">
+                    <div class="navbar__mobile-right">
+                        <div class="header-addrw">
+                            <div class="header-addrw-text">
+                                <div class="header-center-addrw-text-zag addr-sev pb-1">Москва ул. Ибрагимова, 31-а</div>
+                                <ul class="text-left">
+                                    <li class="pb-1">
+                                        <a class="d-inline" href="tel:+74957434544">+7 (495) 743-45-44</a> - Слесарный цех
+                                    </li>
+                                    <li>
+                                        <a class="d-inline" href="tel:+74957740705">+7 (495) 774-07-05</a> - Кузовной цех
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header-addrw-button">
+                                <a href="https://yandex.ru/navi/org/am_plyus/47432007141"
+                                   class="mbtn mbtng modal-form-open" tabindex="0">Схема проезда</a>
+                            </div>
+
+                        </div>
+                        <div class="d-block">
+                            <img src="{{ asset('img/am-logo.png') }}" alt="лого">
+                        </div>
+                        <div class="nav-menu">
+                            <div class="header-center-schedule">Ежедневно с 09:00 до 21:00</div>
+                            <a class="phone__data " id="sev" href="tel:+74957434544">8(495)743-45-44 - Слесарный цех</a>
+                            <a class="phone__data " id="sev" href="tel:+79457740705">8(495)774-07-05 - Кузовной цех</a>
+                        </div>
+                        <div class="mobmenu-open"><img src="/img/icon/menubtn.svg" alt="*"></div>
+                        <div class="menu-ten"></div>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse header-center-menu accordion" id="bs-navbar">
+                    <div class="mobmenu-close-wrap">
+                        <div class="mobmenu-close"><img src="/img/icon/close-black.svg" alt="*"></div>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="/about">О компании</a>
+                        </li>
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Услуги</a>
+                        </li>
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Корпоративным клиентам</a></li>
+
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Отзывы</a></li>
+
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Сертификаты</a></li>
+
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Фотогалерея</a></li>
+
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Цены</a></li>
+
+                        <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
+                                    href="#">Контакты</a></li>
+                    </ul>
+                    <div class="header_card_submenu">
+                        <div class="header_card_submenu_item row">
+                            {% for service in services %}
+                                <div class="spis-block col-md-6">
+                                    <img class="img-svg" src="{{ asset('img/serviceIcon/'~service.slug~'.svg') }}">
+                                    {% if service.isDomain %}
+                                        {% set slug = service.slug %}
+                                        {% set domain = get_domain_zone(slug) %}
+                                        <a href="https://{{ service.slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'}) }}{{ domain }}">{{ service.name }}</a>
+                                    {% else %}
+                                        {% set slug = service.slug %}
+                                        {% set domain = get_domain_zone(slug) %}
+                                        <a href="/{{ service.slug }}">{{ service.name }}</a>
+                                    {% endif %}
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

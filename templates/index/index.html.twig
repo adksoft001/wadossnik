@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ include('blocks/main_block.html.twig') }}
+    {{ include('blocks/slider_marki_avto.html.twig') }}
+    {{ include('static_page/about/index.html.twig') }}
+
+{#    {% if service_from_domain is null %}#}
+{#        {{ include('blocks/service_cards.html.twig') }}#}
+{#    {% endif %}#}
+
+    {{ include('blocks/promo.html.twig') }}
+    {{ include('blocks/price_list.html.twig') }}
+
+{#    {% if service_from_domain %}#}
+{#        {{ include('blocks/gallery.html.twig') }}#}
+{#    {% endif %}#}
+
+    {{ include('blocks/seo_text.html.twig') }}
+
+{#    {% if service_from_domain %}#}
+{#        {% set services = get_all_services(false) %}#}
+{#        {{ include('blocks/service_cards.html.twig') }}#}
+{#    {% endif %}#}
+
+    {{ include('blocks/raiting.html.twig') }}
+    {{ include('blocks/certificate.html.twig') }}
+
+{% endblock %}

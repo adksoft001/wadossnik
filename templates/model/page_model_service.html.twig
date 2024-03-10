@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ include('blocks/main_block.html.twig') }}
+    
+    <div style="margin-top: 50px">
+        {{ include('blocks/raiting.html.twig') }}
+    </div>
+
+    {{ include('blocks/promo.html.twig') }}
+    {{ include('blocks/price_list.html.twig') }}
+    {{ include('blocks/certificate.html.twig') }}
+
+{% endblock %}

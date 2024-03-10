@@ -1,0 +1,26 @@
+<div class="rabotiblock block">
+    <div class="container container2">
+        <div class="zag">Сертификаты</div>
+        <div class="gallery__inner">
+            <div class="swiper gallery-slider">
+                <div class="swiper-wrapper">
+                    {% for i in 1..8 %}
+                        <div class="swiper-slide">
+                            <a class="gallery"
+                               href="{{ asset('img/certificate/'~i~'.jpg') }}" style="height: 40%">
+                                <img src="{{ asset('img/certificate/'~i~'.jpg') }}" alt="сертификат" class="cert-img">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="slider-buttons">
+                <button class="btn-reset-gallery gallery__swiper-button-prev cert-prev"></button>
+                <button class="btn-reset-gallery gallery__swiper-button-next cert-next"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,14 @@
+{% if brand is defined %}
+    {% if app.request.attributes.get('_route') == 'brand_marka_service' %}
+        <title>{{ service.name~' '~brand.name~' '~brand.rusName }} цена в Москве</title>
+    {% else %}
+        <title>{{ get_title_brand_page(service_entity, brand) }}</title>
+    {% endif %}
+{% elseif model is defined %}
+    <title>{{ get_title_model_page(service_entity, model) }}</title>
+{% elseif is_simple_page(app.request.pathInfo) %}
+    <title>{{ get_title_simple_page(app.request.pathInfo, service_entity) }}</title>
+{% elseif brand is not defined %}
+    <title>{{ get_title_basic_site() }}</title>
+{% endif %}
+

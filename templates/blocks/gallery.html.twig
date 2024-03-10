@@ -1,0 +1,33 @@
+{% if service is not defined %}
+    {% set files = get_files_for_gallery(service_from_domain.id) %}
+{% else %}
+    {% set files = get_files_for_gallery(service.id) %}
+{% endif %}
+
+<section class="gallery">
+    <h2 class="zag">Примеры наших работ</h2>
+    <div class="gallery__inner">
+        <div class="swiper gallery-slider">
+            <div class="swiper-wrapper">
+                {% for file in files %}
+                    <div class="swiper-slide">
+                        <a href="{{ asset(file | imagine_filter('thumbnail_gallery_img')) }}" data-fslightbox="gallery">
+                            <picture>
+                                <source srcset="{{ asset(file | imagine_filter('thumbnail_gallery_img')) }}"
+                                        type="image/webp">
+
+                                <img src="{{ asset(file | imagine_filter('thumbnail_gallery_img')) }}"
+                                     class="image gallery__img"
+                                     alt="фото техцентра">
+                            </picture>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button class="btn-reset-gallery gallery__swiper-button-prev"></button>
+            <button class="btn-reset-gallery gallery__swiper-button-next"></button>
+        </div>
+    </div>
+</section>

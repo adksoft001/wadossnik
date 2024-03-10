@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ include('blocks/main_block.html.twig') }}
+    {{ include('blocks/gallery.html.twig') }}
+    {{ include('blocks/promo.html.twig') }}
+    {{ include('services/price_service_price_list.html.twig') }}
+
+    {% if service.seoText is defined and service.seoText != '' %}
+        {{ include('blocks/seo_text.html.twig') }}
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,73 @@
+# Documentation on how to configure the bundle can be found at: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+  # valid drivers options include "gd" or "gmagick" or "imagick"
+    resolvers:
+      default:
+        web_path:
+          web_root: '%kernel.project_dir%/public_html'
+          cache_prefix: media/cache
+    driver: "gd"
+    webp:
+      generate: true
+    twig:
+      mode: lazy
+    loaders:
+      default:
+        filesystem:
+          data_root: '%kernel.project_dir%/public_html'
+
+    filter_sets:
+
+      thumbnail_gallery_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 600, 400 ] }
+
+      thumbnail_car_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 400, 300 ] }
+
+      thumbnail_service_card_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 370, 255 ] }
+
+      thumbnail_map_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 1110, 500 ] }
+
+      thumbnail_address_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 400, 270 ] }
+
+      thumbnail_block_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 1920, 820 ] }
+
+      thumbnail_mobile_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 400, 790 ] }
+
+      thumbnail_brand_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 180, 135 ] }
+
+      thumbnail_model_small_img:
+        format: webp
+        quality: 100
+        filters:
+          thumbnail: { size: [ 180, 100 ] }

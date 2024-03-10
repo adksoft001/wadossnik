@@ -1,0 +1,49 @@
+<div class="block markiblock">
+    <div class="container">
+        <h2 class="zag">Марки авто</h2>
+        <div class="markiblock-slider">
+            {% for brand in brands %}
+                {% if brand.status == 1 %}
+                    <a href="{{ path('dynamic_pages', { token: brand.url~'/' }) }}" class="markiblock-card">
+                <span class="markiblock-card-img">
+                        <picture>
+                             <source srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
+                                     type="image/webp">
+                             <img src="{{ asset('img/brands/'~brand.url~'.png') }}" alt="{{ brand.name }}">
+                        </picture>
+                </span>
+                        <span class="markiblock-card-zag">{{ brand.name }}</span>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="markiblock-spis">
+            <div class="row">
+
+                {% for brand in brands %}
+                    {% if brand.status == 1 %}
+                        <div class="col-lg-2 col-sm-3 col-6">
+                            <a href="{{ path('dynamic_pages', { token: brand.url~'/' }) }}"
+                               class="markiblock-card">
+                        <span class="markiblock-card-img">
+                                <picture>
+                                     <source srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
+                                             type="image/webp">
+                                     <img src="{{ asset('img/brands/'~brand.url~'.png') }}" alt="{{ brand.name }}">
+                                </picture>
+                        </span>
+                                <span class="markiblock-card-zag">{{ brand.name }}</span>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <div class="markiblock-btn mbtn mbtn2">
+                <span class="markiblock-btn-s1">Показать все</span>
+                <span class="markiblock-btn-s2">Скрыть все</span>
+            </div>
+        </div>
+    </div>
+</div>

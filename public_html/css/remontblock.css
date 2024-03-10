@@ -1,0 +1,348 @@
+
+.remontblock-img {
+    -ms-flex-item-align: center;
+    align-self: center
+}
+
+.remontblock-img .mbtn {
+    width: 100%;
+    margin-top: 10px
+}
+
+.remontblock-swrap a {
+    display: block;
+    padding-left: 30px;
+    font-size: 15.5px;
+    margin-bottom: 10px;
+    position: relative;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s
+}
+
+.remontblock-swrap a:hover {
+    color: #0039a6;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s
+}
+
+.remontblock-swrap a:before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: url(/img/icon/brakerepair.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .diagnostika:before {
+    background: url(/img/serviceIcon/diagnostika.svg) center no-repeat;
+    background-size: contain
+}
+.remontblock-swrap .remont-transmissii:before {
+    background: url(/img/serviceIcon/remont-transmissii.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-dvigatelya:before {
+    background: url(/img/serviceIcon/remont-dvigatelya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .elektrooborudovanie:before {
+    background: url(/img/serviceIcon/elektrooborudovanie.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-glushitelya:before {
+    background: url(/img/serviceIcon/remont-glushitelya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-hodovoj-podveski:before {
+    background: url(/img/serviceIcon/remont-hodovoj-podveski.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-rulevogo-upravleniya:before {
+    background: url(/img/serviceIcon/remont-rulevogo-upravleniya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-tormoznoj-sistemy:before {
+    background: url(/img/serviceIcon/remont-tormoznoj-sistemy.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .pokraska-kuzova:before {
+    background: url(/img/serviceIcon/pokraska-kuzova.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .kuzovnoj-remont:before {
+    background: url(/img/serviceIcon/kuzovnoj-remont.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .zamena-avtostekol:before {
+    background: url(/img/serviceIcon/zamena-avtostekol.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .svarka-avtomobilya:before {
+    background: url(/img/serviceIcon/svarka-avtomobilya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .tyuning-avto:before {
+    background: url(/img/serviceIcon/tyuning-avto.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-akpp:before {
+    background: url(/img/serviceIcon/remont-akpp.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .shod-razval:before {
+    background: url(/img/serviceIcon/shod-razval.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-korobki-dsg:before {
+    background: url(/img/serviceIcon/remont-korobki-dsg.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .shinomontazh:before {
+    background: url(/img/serviceIcon/shinomontazh.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .promyvka-sistem-avtomobilya:before {
+    background: url(/img/serviceIcon/promyvka-sistem-avtomobilya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .regulirovka-klapanov:before {
+    background: url(/img/serviceIcon/regulirovka-klapanov.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-dizelnogo-dvigatelya:before {
+    background: url(/img/serviceIcon/remont-dizelnogo-dvigatelya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-forsunki:before {
+    background: url(/img/serviceIcon/remont-forsunki.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-gbc-dvigatelya:before {
+    background: url(/img/serviceIcon/remont-gbc-dvigatelya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-sistemy-ohlazhdeniya:before {
+    background: url(/img/serviceIcon/remont-sistemy-ohlazhdeniya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-tnvd:before {
+    background: url(/img/serviceIcon/remont-tnvd.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-toplivnoy-sistemy:before {
+    background: url(/img/serviceIcon/remont-toplivnoy-sistemy.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-turbiny:before {
+    background: url(/img/serviceIcon/remont-turbiny.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .tekhnicheskoe-obsluzhivanie-dvigatelya:before {
+    background: url(/img/serviceIcon/tekhnicheskoe-obsluzhivanie-dvigatelya.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-avtokondicionerov:before {
+    background: url(/img/serviceIcon/remont-avtokondicionerov.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-rulevyh-reek:before {
+    background: url(/img/serviceIcon/remont-rulevyh-reek.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .tehnicheskoe-obsluzhivanie:before {
+    background: url(/img/serviceIcon/tehnicheskoe-obsluzhivanie.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .remont-akpp-moskva:before {
+    background: url(/img/serviceIcon/remont-akpp-moskva.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .becalc:before {
+    background: url(/img/icon/calc.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .bezapchasty:before {
+    background: url(/img/icon/zapchasty_bl.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .bezapchastyrd:before {
+    background: url(/img/icon/zapchasty.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .bediagnost:before {
+    background: url(/img/icon/pen-red.svg) center no-repeat;
+    background-size: contain
+}
+
+.remontblock-swrap .becons:before {
+    background: url(/img/icon/vopros-red.svg) center no-repeat;
+    background-size: contain
+}
+
+@media (min-width: 1800px) {
+    .remontblock-img {
+        -ms-flex-item-align: center;
+        align-self: center
+    }
+
+    .remontblock-img .mbtn {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        padding: 15px
+    }
+
+    .remontblock-swrap a {
+        display: block;
+        padding-left: 45px;
+        font-size: 18px;
+        margin-bottom: 14px;
+        position: relative
+    }
+
+    .remontblock-swrap a:before {
+        width: 28px;
+        height: 28px
+    }
+}
+
+@media (max-width: 1199px) {
+    .remontblock-img {
+        width: 33.33%;
+        margin-left: 33.33%;
+        margin-right: 33.33%;
+        margin-bottom: 30px
+    }
+}
+
+@media (max-width: 991px) {
+    .remontblock-img {
+        width: 50%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 30px;
+        text-align: center
+    }
+
+    .remontblock-img img {
+        max-width: 300px
+    }
+
+    .remontblock-img .mbtn {
+        max-width: 300px
+    }
+
+    .remontblock-swrap-b1 {
+        width: 50%
+    }
+}
+
+@media (max-width: 767px) {
+    .remontblock-img {
+        width: 100%;
+        margin-bottom: 30px
+    }
+
+    .remontblock-img img {
+        max-width: 300px
+    }
+
+    .remontblock-img .mbtn {
+        max-width: 300px
+    }
+
+    .remontblock-swrap-b1 {
+        width: 50%
+    }
+
+    .remontblock-swrap-b2 {
+        width: 50%
+    }
+
+    .remontblock-swrap-b3 {
+        display: none
+    }
+
+    .remontblock-swrap a {
+        font-size: 14px
+    }
+}
+
+@media (max-width: 575px) {
+    .remontblock-img {
+        width: 100%;
+        margin-bottom: 30px
+    }
+
+    .remontblock-img img {
+        max-width: 300px
+    }
+
+    .remontblock-img .mbtn {
+        max-width: 300px
+    }
+
+    .remontblock-swrap {
+        max-width: 260px;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 15.5px
+    }
+
+    .remontblock-swrap-b1 {
+        width: 100%
+    }
+
+    .remontblock-swrap-b2 {
+        width: 100%
+    }
+
+    .remontblock-swrap a {
+        font-size: 14px
+    }
+}

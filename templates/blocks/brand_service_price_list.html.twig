@@ -1,0 +1,58 @@
+<div class="block5">
+    <div class="container">
+
+        {% if app.request.pathInfo == '/price_list/' %}
+            <h1 class="zag">Прайс лист
+                на {% if service_from_domain %}{{ service_from_domain.name | replace({ ' двигателя': ''}) | lower }}{% else %}ремонт {% endif %}
+                двигателя</h1>
+        {% elseif app.request.attributes.get('_route') == 'brand_marka_service' %}
+            <h2 class="zag">{{ service.name~' '~brand.name~' '~brand.rusName }} цена:</h2>
+        {% else %}
+            <h2 class="zag">{{ include('widget/title_h2.html.twig') }} цена:</h2>
+        {% endif %}
+
+
+        {% if is_service_from_domain_special_site(service_from_domain) %}
+            {% set service = service_from_domain %}
+
+            {% set services = [service] %}
+
+            {% if service.slug == 'tehnicheskoe-obsluzhivanie' %}
+                {% set services = services|merge([get_service('tehnicheskoe-obsluzhivanie-dvigatelya')]) %}
+            {% endif %}
+
+            {% for service in services %}
+                {{ include ('widget/brand_service_price_category_item.html.twig') }}
+            {% endfor %}
+        {% elseif app.request.attributes.get('_route') == 'brand_marka_service' %}
+            {{ include ('widget/brand_service_price_category_item.html.twig') }}
+        {% else %}
+            {% for service in services %}
+                {{ include ('widget/brand_service_price_category_item.html.twig') }}
+            {% endfor %}
+        {% endif %}
+
+        <div class="under_price">
+            <div class="important_block">
+                <strong class="priv_act_nvv">
+                    <span class="zvezda_diagnostika">🔥</span>
+                    <span style="font-size: 24px;">ДИАГНОСТИКА за 490₽ по 43 параметрам</span>
+                </strong>.<br>
+                <span class="galka_diagnostika">⛔</span>
+                <i style="font-weight: lighter; margin-top: 5px;font-size: 16px"> Диагностика в подарок при ремонте в
+                    нашем специализированном автосервисе «Моторист»</i>
+            </div>
+        </div>
+
+        <div class="calc__btns">
+            <a class="btn-reset open_modal btn calc__btn modal-form-open" data-name="Диагностика">диагностика</a>
+            <button class="btn-reset open_modal btn calc__btn calc__btn-mid modal-form-open"
+                    data-name="Получить консультацию">получить консультацию
+            </button>
+            <button class="btn-reset open_modal btn calc__btn modal-form-open" data-name="Заявка на эвакуатор">заявка на
+                эвакуатор
+            </button>
+        </div>
+
+    </div>
+</div>

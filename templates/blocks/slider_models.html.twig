@@ -1,0 +1,52 @@
+<div class="block markiblock">
+    <div class="container">
+        <div class="markiblock-slider">
+            {% for model in brand.models %}
+
+                {% if model.status == 1 %}
+                    {% set model_name = model.url|lower %}
+                    <a href="{{ path('dynamic_pages', { token: brand.url~'/'~model_name~'/' }) }}" class="markiblock-card">
+                <span class="markiblock-card-img">
+                        <picture>
+                             <source srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
+                                     type="image/webp">
+                             <img src="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') }}" alt="{{ model.name }}">
+                        </picture>
+                </span>
+                        <span class="markiblock-card-zag">{{ model.name }}</span>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="markiblock-spis">
+            <div class="row">
+                {% for model in brand.models %}
+                    {% if model.status == 1 %}
+                        {% set model_name = model.url|lower %}
+                        <div class="col-lg-2 col-sm-3 col-6">
+                            <a href="{{ path('dynamic_pages', { token: brand.url~'/'~model_name~'/' }) }}"
+                               class="markiblock-card">
+                        <span class="markiblock-card-img">
+                         <picture>
+                             <source srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
+                                     type="image/webp">
+                             <img src="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') }}" alt="{{ model.name }}">
+                        </picture>
+                        </span>
+                                <span class="markiblock-card-zag">{{ model.name }}</span>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% if brand.models.count >= 7 %}
+        <div class="btn-wrap">
+            <div class="markiblock-btn mbtn mbtn2">
+                <span class="markiblock-btn-s1">Показать все</span>
+                <span class="markiblock-btn-s2">Скрыть все</span>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

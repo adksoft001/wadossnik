@@ -1,0 +1,65 @@
+<div class="block5">
+    <div class="container">
+
+        {% if app.request.pathInfo == '/price_list/' %}
+            <h1 class="zag">Прайс лист
+                на {% if service_from_domain %}{{ service_from_domain.name | replace({ ' двигателя': ''}) | lower }}{% else %}ремонт {% endif %}
+                двигателя</h1>
+        {% else %}
+            <h2 class="zag">{{ include('widget/title_h2.html.twig') }} цена:</h2>
+        {% endif %}
+
+
+{#        {% if is_service_from_domain_special_site(service_from_domain) %}#}
+{#            {% set service = service_from_domain %}#}
+
+{#            {% set services = [service] %}#}
+
+{#            {% if service.slug == 'tehnicheskoe-obsluzhivanie' %}#}
+{#                {% set services = services|merge([get_service('tekhnicheskoe-obsluzhivanie-dvigatelya')]) %}#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+
+        {% if model is defined %}
+            {% for service in services %}
+{#                {% if model.isPopular %}#}
+                    {{ include ('widget/model_price_category_item.html.twig') }}
+{#                {% else %}#}
+{#                    {{ include ('widget/price_category_item.html.twig') }}#}
+{#                {% endif %}#}
+            {% endfor %}
+        {% elseif brand is defined %}
+            {% for service in services %}
+                {{ include ('widget/brand_service_price_category_item.html.twig') }}
+            {% endfor %}
+        {% else %}
+            {% for service in services %}
+                {{ include ('widget/price_category_item.html.twig') }}
+            {% endfor %}
+        {% endif %}
+
+
+        <div class="under_price">
+            <div class="important_block">
+                <strong class="priv_act_nvv">
+                    <span class="zvezda_diagnostika">🔥</span>
+                    <span style="font-size: 24px;">Бесплатная диагностика подвески (ходовой)</span>
+                </strong>.<br>
+                <span class="galka_diagnostika">⛔</span>
+                <i style="font-weight: lighter; margin-top: 5px;font-size: 16px">Диагностика ходовой части авто при первом посещении нашего сервиса бесплатно</i>
+                <br>
+                <i style="font-weight: lighter; margin-top: 5px;font-size: 16px">
+                    {{ under_price_text(service_from_domain.slug ?? '') }}
+                </i>
+            </div>
+        </div>
+
+        <div class="block1-btnwrap block1-btnwrap-underprice">
+            <div class="mbtn mbtnot modal-form-open" data-name="Получить консультацию" data-type="diagnostic">Диагностика</div>
+            <div class="mbtn mbtnot modal-form-open" data-name="Получить консультацию" data-type="consultation">Получить консультацию</div>
+            <div class="mbtn mbtnot modal-form-open" data-name="Заявка на эвакуатор" data-type="evacuator">Заявка на эвакуатор</div>
+            <?php endif; ?>
+        </div>
+
+    </div>
+</div>

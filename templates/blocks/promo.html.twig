@@ -1,0 +1,38 @@
+{% set promotions = get_all_promo() %}
+<div class="block akciiblock" style="background: url({{ asset('img/fon_akcii.jpg') | imagine_filter('thumbnail_block_img') }})">
+    <div class="akciiblock-wrap">
+        <div class="container container2">
+            <h2 class="zag">Наши акции</h2>
+            <div class="akciiblock-slider">
+                {% for promo in promotions %}
+                    {% if promo.status %}
+                        <div class="akciiblock-slider-s">
+                            <div class="akciiblock-slider-s-card">
+                                <div class="akciiblock-slider-s-card-zag">{{ promo.title }}</div>
+                                <div class="akciiblock-slider-s-card-text">{{ promo.description }}</div>
+                                <div class="dual">
+                                    <div class="dual-l">
+                                        <div class="cena">
+                                            {% if promo.price > 0 %}
+                                                {% if promo.newPrice > 0 %}
+                                                    {{ promo.newPrice }} <s style="text-decoration: line-through">{{ promo.price }}</s>
+                                                {% else %}
+                                                    {{ promo.price }}
+                                                {% endif %}
+                                                 руб
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="dual-r">
+                                        <a href="#" class="mbtn mbtng modal-form-open" data-name="Заказать звонок"
+                                           data-type="repaire">Записаться</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="all">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/svg+xml">
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/style-mig.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
+        <link rel="stylesheet" href="{{ asset('map/map.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/video-widget.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/about_company.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/simple-adaptive-slider.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/remontblock.css') }}">
+    {% endblock %}
+
+    {% set service_entity = service ?? null %}
+
+    {{ include('widget/meta_title.html.twig') }}
+    {{ include('widget/meta_description.html.twig') }}
+
+</head>
+<body class="page-body">
+
+{% set services = get_all_services() %}
+{{ include('blocks/header.html.twig') }}
+
+{% block body %}{% endblock %}
+{{ include('blocks/footer.html.twig') }}
+
+
+<div class="modal modal-form" id="modal-form">
+    <form id="recall-form">
+        <h4 class="text-center" id="recall-form-name">Бесплатная диагностика</h4>
+        <div class="form-group">
+            <label for="client_name">Ваше имя</label>
+            <input type="text" id="client_name" class="form-control" name="client_name" value="" required=""></div>
+        <div class="form-group">
+            <label for="client_phone">Номер телефона</label>
+            <input type="text" id="client_phone" class="form-control" name="client_phone" value=""
+                   placeholder="+7 (___) ___-__-__" required="" maxlength="18"></div>
+        <div class="form-group">
+            <div id="form-recall-send" class="mbtn">Отправить</div>
+        </div>
+    </form>
+</div>
+
+<div class="modal modal-report" id="modal-report">
+    <h4 class="text-center" id="modal-report-header"></h4>
+    <p id="modal-report-massage"></p>
+    <div class="form-group">
+        <a href="#" rel="modal:close" class="mbtn form-recall-ok">OK</a>
+    </div>
+</div>
+
+<script src="{{ asset('js/main.min.js') }}"></script>
+<script src="{{ asset('js/gallery/main.js') }}"></script>
+<script src="{{ asset('js/video-widget.js') }}"></script>
+<script src="{{ asset('js/custom/script.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/simple-adaptive-slider.js') }}"></script>
+<script src="{{ asset('js/slider.js') }}"></script>
+<script src="{{ asset('map/map.js') }}"></script>
+
+</body>
+</html>

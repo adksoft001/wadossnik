@@ -1,0 +1,29 @@
+<div class="col-xl-3 col-lg-4 col-sm-6 {% if loop.index > 8 %} cenablockdn {% endif %}">
+
+    {% set img = asset( ('img/services/'~service.slug~'.jpg') | imagine_filter('thumbnail_service_card_img')) %}
+
+    <div class="cenablock-card" style="background: url({{ img }}) center no-repeat; background-size: cover;">
+        <div class="cenablock-card-ten">
+            <div class="cenablock-card-abs">
+                <div class="cenablock-card-abs-text">
+                    {% if service.isDomain %}
+
+                        {% set slug = service.slug %}
+                        {% set domain = get_domain_zone(slug) %}
+
+                        <a href="https://{{ service.slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'}) }}{{ domain }}">
+                            {{ service.name }}</a>
+                    {% else %}
+                        {% set domain = get_domain_zone(service.slug) %}
+                        <a href="{{ path('dynamic_pages', {token: service.slug~'/'}) }}">{{ service.name }}</a>
+                    {% endif %}
+                </div>
+                <div class="cenablock-card-abs-btnwrap">
+                    <a href="#price-{{ service.slug }}" class="mbtn mbtn2 price-button" id="{{ service.slug }}">Цена</a>
+                    <a href="#" class="mbtn mbtng modal-form-open" data-name="Получить консультацию"
+                       data-type="consultation">Получить консультацию</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

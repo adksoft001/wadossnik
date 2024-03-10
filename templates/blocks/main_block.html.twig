@@ -1,0 +1,46 @@
+{% set brand_name = '' %}
+{% if brand is defined %}
+    {% set brand_name = brand.name %}
+{% endif %}
+
+{% set model_name = '' %}
+{% if model is defined %}
+    {% set model_name = model.brand.name~' '~model.name %}
+{% endif %}
+
+<div class="block1">
+    <div class="block1-wraper">
+        <div class="container ">
+
+            <h1>{{ get_title_h1(service_entity, brand_name, model_name) }}</h1>
+         
+            <div class="block1-btnwrap">
+                <div class="mbtn mbtn2 modal-form-open" data-name="Диагностика"
+                     data-type="diagnostic">Диагностика
+                </div>
+                <div class="mbtn mbtnot modal-form-open center" data-name="Заказать эвакуатор"
+                     data-type="repaire">Заказать эвакуатор
+                </div>
+                <div class="mbtn mbtn2 mbtn2r modal-form-open" data-name="Получить консультацию"
+                     data-type="consultation">Получить консультацию
+                </div>
+            </div>
+        </div>
+
+        <div class="block1-utpwrap">
+            <div class="container">
+                <div class="row">
+
+                    {% for key, utp in get_utp(model_name ?: brand_name) %}
+                        <div class="col-lg-4">
+                            <div class="utp {{ key }}">
+                                {{ utp }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+</div>

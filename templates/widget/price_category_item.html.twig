@@ -1,0 +1,44 @@
+<div class="price_category">
+    {% set current_service = get_current_service(service) %}
+    {% set classIconName =  current_service.service.slug  ?? current_service.slug %}
+
+    <div id="price-{{ classIconName }}" class="calc__price_category">
+        <div class="cals__price_category_left">
+            <img class="img-svg" src="{{ asset('img/serviceIcon/'~classIconName~'.svg') }}" alt="">
+
+            <span> {{ current_service.name }} </span>
+
+        </div>
+        <svg class="price_btn" width="33" height="33" viewBox="0 0 44 44" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.9993 3.66675C11.8793 3.66675 3.66602 11.8801 3.66602 22.0001C3.66602 32.1201 11.8793 40.3334 21.9993 40.3334C32.1194 40.3334 40.3327 32.1201 40.3327 22.0001C40.3327 11.8801 32.1194 3.66675 21.9993 3.66675ZM31.166 23.8334H23.8327V31.1667H20.166V23.8334H12.8327V20.1667H20.166V12.8334H23.8327V20.1667H31.166V23.8334Z"
+                  fill="#0039a6"/>
+        </svg>
+    </div>
+
+    <ul class="calc__price_subcategory">
+
+        {% set subServices =  get_services_for_price_list(service) %}
+        {% for subService in subServices %}
+            <li class="calc__descr-item ">
+
+                <div class="calc__descr-name">
+                    {% if '/' not in subService.slug %}
+                        {{ ucfirst(subService.name) }}
+                    {% elseif subService.service.isDomain is defined and subService.service.isDomain %}
+                        {% set slug = subService.service.slug %}
+                        {% set domain = get_domain_zone(slug) %}
+                        <a class="price_path" href="https://{{ slug | replace({'kapitalnyj-remont-dvigatelya' : 'remont-dvigatelya'}) }}{{ domain }}/{{ subService.slug }}">{{ ucfirst(subService.name) }}</a>
+                    {% else %}
+                        {% set slug = subService.slug %}
+                        {% set domain = get_domain_zone(slug) %}
+                        <a class="price_path" href="/{{ subService.slug }}">{{ ucfirst(subService.name) }}</a>
+                    {% endif %}
+                </div>
+
+                <div class="calc__descr-value">От {{ price_calc(subService.hours) }} <span>₽</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic,cyrillic-ext");
+
+$orang: #ff8e00;
+$orang2: #ffcc00;
+$black: #232323;
+$white: #fff;
+$red: #D52B1E;
+$red2: #ff2400;
+$blue: #0039A6;
+$blue2: #047bbf;
+$green: #a0ca4c;
+
+.seoblock {
+    .container2 {
+        box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+        padding: 25px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 32px;
+        padding-top: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+        padding-top: 15px;
+    }
+
+    h3 {
+        font-size: 24px;
+        padding-top: 15px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    a {
+        color: $blue;
+    }
+
+    ul {
+        li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 5px;
+            font-size: 16px;
+
+            &:before {
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                content: "";
+                border-radius: 50%;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background-image: linear-gradient(to right, $red2 0%, $blue 100%);
+            }
+
+            &:after {
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                content: "";
+                border-radius: 50%;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url("../img/icon/garant4.svg") center center no-repeat;
+                background-size: 65%;
+            }
+        }
+    }
+
+    .mbtn {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .btnwrap {
+        text-align: center;
+    }
+
+    .seo-skrcont {
+        display: none;
+    }
+}
+
+@media(max-width: 575px) {
+    .seoblock {
+        .container2 {
+            padding: 15px;
+        }
+    }
+}
