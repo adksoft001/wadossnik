@@ -364,6 +364,10 @@
     }
 }
 
+.static_page-block {
+    margin-top: 3rem;
+}
+
 @media (max-width: 576px) {
     .calc__btn-mid {
         width: 260px;
@@ -381,18 +385,91 @@
     .calc__price_subcategory {
         margin-left: 15px;
     }
-    
+
     .block1-wraper {
         padding-top: 90px;
     }
 
+    .static_page-block {
+        margin-top: unset;
+    }
+
+    .static_page-block .cenablock {
+        padding-top: 110px;
+    }
+
+    .static_page-block .block {
+        margin-top: unset!important;
+    }
+
+   .static_page-block .block5 {
+       padding-top: 105px;
+   }
+
+    .static_page-block .rabotiblock {
+        padding-top: 100px;
+    }
+
+    .static_page-block .accordion_anchor {
+        padding-top: 110px;
+    }
+
+    .static_page-block .gallery {
+        padding-top: 110px !important;
+    }
+    .static_page-block .contacts-h1 {
+        margin: unset;
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 762px) {
+    .static_page-block {
+        margin-top: unset;
+    }
+    
+    .static_page-block .contacts-h1 {
+        margin: unset;
+        padding-top: 100px;
+    }
+    .static_page-block .block5 {
+        padding-top: 105px;
+    }
+
+    .static_page-block .cenablock {
+        padding-top: 110px;
+    }
+
+    .section_text {
+        margin-top: unset !important;
+        padding-top: 95px;
+    }
+
+    .static_page-block .block {
+        margin-top: unset!important;
+    }
+
+    .static_page-block .rabotiblock {
+        padding-top: 100px;
+    }
+
+    .static_page-block .accordion_anchor {
+        padding-top: 110px;
+    }
+
+    .static_page-block .gallery {
+        padding-top: 110px !important;
+    }
 }
 
 .calc__btn {
     margin-bottom: 20px;
 }
 
+
 @media (max-width: 576px) {
+
+
     .calc__price_category span {
         font-size: 14px;
     }
@@ -653,11 +730,6 @@
     padding-top: 50px;
 }
 
-@media (max-width: 576px) {
-    .gallery {
-        padding-top: 32px;
-    }
-}
 
 .btn-reset-gallery {
     border: none;

@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {% include('static_page/about/index.html.twig') %}
-    {{ include('blocks/certificate.html.twig') }}
+    <section class="static_page-block">
+        {% include('static_page/about/index.html.twig') %}
+        {{ include('blocks/certificate.html.twig') }}
+    </section>
+
 {% endblock %}
