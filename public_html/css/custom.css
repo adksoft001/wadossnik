@@ -1325,11 +1325,11 @@
     color: white;
 }
 
-.block1 {
-    background: url('../img/avtoservis.jpg') center no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
+/*.block1 {*/
+/*    background: url('../img/avtoservis.jpg') center no-repeat;*/
+/*    background-size: cover;*/
+/*    background-attachment: fixed;*/
+/*}*/
 
 .markiblock .slick-prev,
 .markiblock .slick-next {

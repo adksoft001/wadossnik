@@ -8,7 +8,22 @@
     {% set model_name = model.brand.name~' '~model.name~' '~model.rusName %}
 {% endif %}
 
+{% if app.request.pathInfo != '/' %}
+<style>
+    .block1 {
+        background: url('../img/avtoservis.jpg')  no-repeat center/cover fixed;
+    }
+</style>
+{% else %}
+    <style>
+        .block1 {
+            background: url('../img/banner.jpg')  no-repeat center/cover fixed;
+        }
+    </style>
+{% endif %}
+
 <div class="block1">
+
     <div class="block1-wraper">
         <div class="container ">
 
