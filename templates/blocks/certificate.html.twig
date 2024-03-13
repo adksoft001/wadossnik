@@ -1,6 +1,10 @@
 <div class="rabotiblock block">
     <div class="container container2">
-        <div class="zag">Сертификаты</div>
+        {% if app.request.pathInfo == '/certificates/' %}
+            <h1 class="zag">Сертификаты</h1>
+        {% else %}
+            <h2 class="zag">Сертификаты</h2>
+        {% endif %}
         <div class="gallery__inner">
             <div class="swiper certificate-slider">
                 <div class="swiper-wrapper">

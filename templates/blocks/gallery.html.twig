@@ -1,13 +1,19 @@
 {% set files = get_files_for_gallery() %}
 
 <section class="gallery">
-    <h2 class="zag">Примеры наших работ</h2>
+    {% if app.request.pathInfo == '/gallery/' %}
+        <h1 class="zag">Примеры наших работ</h1>
+    {% else %}
+        <h2 class="zag">Примеры наших работ</h2>
+    {% endif %}
+
     <div class="gallery__inner">
         <div class="swiper gallery-slider">
             <div class="swiper-wrapper">
                 {% for file in files %}
                     <div class="swiper-slide">
-                        <a href="{{ asset(file | imagine_filter('thumbnail_gallery_img')) }}" data-fslightbox="gallery">
+                        <a href="{{ asset(file | imagine_filter('thumbnail_gallery_img')) }}"
+                           data-fslightbox="gallery">
                             <picture>
                                 <source srcset="{{ asset(file | imagine_filter('thumbnail_gallery_img')) }}"
                                         type="image/webp">

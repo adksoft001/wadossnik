@@ -1,9 +1,14 @@
 <div class="accordion_anchor" id="header_raiting">
     <div class="raiting">
         <div class="container">
-            <h2>Независимые отзывы:</h2>
+            {% if app.request.pathInfo == '/reviews/' %}
+                <h1 class="zag">Независимые отзывы:</h1>
+            {% else %}
+                <h2>Независимые отзывы:</h2>
+            {% endif %}
 
-            <div class="raiting_description" itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
+            <div class="raiting_description" itemprop="aggregateRating" itemscope="itemscope"
+                 itemtype="http://schema.org/AggregateRating">
                 <meta itemprop="worstRating" content="1">
                 <span class="stars">
                     <span class="star on"></span>
@@ -21,7 +26,8 @@
 
             <div class="raiting_block">
 
-                <a class="integrator_card" href="https://www.avito.ru/moskva/predlozheniya_uslug/avtoservis_3631296689" target="_blank">
+                <a class="integrator_card" href="https://www.avito.ru/moskva/predlozheniya_uslug/avtoservis_3631296689"
+                   target="_blank">
                     <div class="integrator">
                         <img class="int_logo" src="{{ asset('img/integrator_logo/avito.webp') }}" alt="avito">
                         <i class="int_rait">Рейтинг</i>
@@ -49,7 +55,8 @@
                         <i class="int_five">4.7 из 5</i>
                     </div>
                 </a>
-                <a class="integrator_card" href="https://zoon.ru/msk/autoservice/avtosalon_avtokar_na_metro_izmajlovo/#reviews" target="_blank">
+                <a class="integrator_card"
+                   href="https://zoon.ru/msk/autoservice/avtosalon_avtokar_na_metro_izmajlovo/#reviews" target="_blank">
                     <div class="integrator">
                         <img class="int_logo" src="{{ asset('img/integrator_logo/rating-logo-zoon.png') }}" alt="zoon">
                         <i class="int_rait">Рейтинг</i>

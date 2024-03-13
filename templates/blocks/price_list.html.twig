@@ -2,9 +2,7 @@
     <div class="container">
 
         {% if app.request.pathInfo == '/price_list/' %}
-            <h1 class="zag">Прайс лист
-                на {% if service_from_domain %}{{ service_from_domain.name | replace({ ' двигателя': ''}) | lower }}{% else %}ремонт {% endif %}
-                двигателя</h1>
+            <h1 class="zag">Прайс лист</h1>
         {% else %}
             <h2 class="zag">{{ include('widget/title_h2.html.twig') }} цена:</h2>
         {% endif %}

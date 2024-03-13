@@ -1,15 +1,9 @@
 <div class="block cenablock">
     <div class="container container2">
         {% if app.request.pathInfo == '/services/' %}
-            <h1 class="zag">Услуги
-                на {% if service_from_domain %}{{ service_from_domain.name | replace({ ' двигателя': ''}) | lower }}{% else %}ремонт{% endif %}
-                двигателя</h1>
+            <h1 class="zag"> Услуги и цены </h1>
         {% else %}
-            {% set head_element = 'h1' %}
-            {% if app.request.pathInfo == '/' %}
-                {% set head_element = 'h2' %}
-            {% endif %}
-            <{{ head_element }} class="zag">Услуги и цены</{{ head_element }}>
+            <h2 class="zag"> Услуги и цены </h2>
         {% endif %}
         <div class="row">
             {% for service in services %}
