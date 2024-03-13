@@ -48,7 +48,7 @@
   bottom: 50px;
   border-radius: 20px;
   border-width: 5px;
-  width: 130px;
+  width: 350px;
   height: 180px;
   border-color: #fff;
 }
@@ -131,8 +131,8 @@
   opacity: 0.5;
 }
 .video-widget.video-widget[data-state="opened"] .video-widget__container {
-  width: 280px;
-  height: 500px;
+  width: 400px;
+  height: 200px;
   border-radius: 20px;
   border-color: #fff;
 }
@@ -204,8 +204,12 @@
   .video-widget__container {
     left: 15px;
     bottom: 15px;
-    width: 90px;
-    height: 125px;
+    width: 150px;
+    height: 100px;
+  }
+  .video-widget.video-widget[data-state="opened"] .video-widget__container {
+    width: 250px;
+    height: 150px;
   }
 }
 .video-widget__button {
