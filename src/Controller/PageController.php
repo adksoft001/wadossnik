@@ -17,9 +17,14 @@ class PageController extends AbstractController
 {
     #[Route('/{token}', name: 'dynamic_pages', requirements: ["token" => ".+\/$"], priority: -1)]
     public function renderPage(
-        string $token,
+        string           $token,
         ResolverServices $resolverServices,
-    ): Response {
+    ): Response
+    {
+        if (str_contains($token, 'remont-i-servis')) {
+            $token = str_replace('remont-i-servis-',  '', $token);
+        }
+
         $service = $resolverServices->getService($token);
 
         if ($service) {
@@ -77,7 +82,7 @@ class PageController extends AbstractController
     private function renderServiceBrand(array $serviceBrand): Response
     {
         return $this->render('brands/page_brand_service.html.twig', [
-            'brand'   => $serviceBrand['brand'],
+            'brand' => $serviceBrand['brand'],
             'service' => $serviceBrand['service']
         ]);
     }
@@ -92,7 +97,7 @@ class PageController extends AbstractController
     private function renderServiceModel(array $serviceModel): Response
     {
         return $this->render('model/page_model_service.html.twig', [
-            'model'   => $serviceModel['model'],
+            'model' => $serviceModel['model'],
             'service' => $serviceModel['service'],
         ]);
     }

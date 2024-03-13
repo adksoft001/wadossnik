@@ -16,9 +16,9 @@
             </div>
 
             {% if model is defined %}
-                {% set url =  model.brand.url~'/'~model.url %}
+                {% set url = 'remont-i-servis-'~model.brand.url~'/'~model.url %}
             {% else %}
-                {% set url =  brand.url %}
+                {% set url = 'remont-i-servis-'~brand.url %}
             {% endif %}
 
 
@@ -29,7 +29,7 @@
 
                         {% else %}
                             <a href="/{{ url }}/{{ service.slug }}/"
-                               class="{{ service.slug }}">{{ service.name }}</a>
+                               class="{{ service.slug }}">{{ service.name | replace({'Электрооборудование': 'Ремонт электрооборудования'}) }}</a>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
@@ -42,7 +42,7 @@
 
                         {% else %}
                             <a href="/{{ url }}/{{ service.slug }}/"
-                               class="{{ service.slug }}">{{ service.name }}</a>
+                               class="{{ service.slug }}">{{ service.name  | replace({'Электрооборудование': 'Ремонт электрооборудования'}) }}</a>
                         {% endif %}
                     {% endif %}
                 {% endfor %}

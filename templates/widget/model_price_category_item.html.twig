@@ -29,7 +29,7 @@
                   = {% else %}
                         {% set slug = subService.slug %}
                         <a class="price_path"
-                           href="/{{ model.brand.url }}/{{ model.url|lower }}/{{ subService.slug }}">{{ ucfirst(subService.name) }}</a>
+                           href="/{{'remont-i-servis-'~model.brand.url }}/{{ model.url|lower }}/{{ subService.slug }}">{{ ucfirst(subService.name) }}</a>
                     {% endif %}
                 </div>
 

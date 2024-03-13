@@ -5,7 +5,7 @@
 
                 {% if model.status == 1 %}
                     {% set model_name = model.url|lower %}
-                    <a href="{{ path('dynamic_pages', { token: brand.url~'/'~model_name~'/' }) }}" class="markiblock-card">
+                    <a href="{{ path('dynamic_pages', { token:'remont-i-servis-'~brand.url~'/'~model_name~'/' }) }}" class="markiblock-card">
                 <span class="markiblock-card-img">
                         <picture>
                              <source srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
@@ -24,7 +24,7 @@
                     {% if model.status == 1 %}
                         {% set model_name = model.url|lower %}
                         <div class="col-lg-2 col-sm-3 col-6">
-                            <a href="{{ path('dynamic_pages', { token: brand.url~'/'~model_name~'/' }) }}"
+                            <a href="{{ path('dynamic_pages', { token:'remont-i-servis-'~brand.url~'/'~model_name~'/' }) }}"
                                class="markiblock-card">
                         <span class="markiblock-card-img">
                          <picture>

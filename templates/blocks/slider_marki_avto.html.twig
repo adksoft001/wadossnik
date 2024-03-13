@@ -4,7 +4,8 @@
         <div class="markiblock-slider">
             {% for brand in brands %}
                 {% if brand.status == 1 %}
-                    <a href="{{ path('dynamic_pages', { token: brand.url~'/' }) }}" class="markiblock-card">
+                    <a href="{{ path('dynamic_pages', { token: 'remont-i-servis-'~brand.url~'/' }) }}"
+                       class="markiblock-card">
                 <span class="markiblock-card-img">
                         <picture>
                              <source srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
@@ -23,7 +24,7 @@
                 {% for brand in brands %}
                     {% if brand.status == 1 %}
                         <div class="col-lg-2 col-sm-3 col-6">
-                            <a href="{{ path('dynamic_pages', { token: brand.url~'/' }) }}"
+                            <a href="{{ path('dynamic_pages', { token:'remont-i-servis-'~brand.url~'/' }) }}"
                                class="markiblock-card">
                         <span class="markiblock-card-img">
                                 <picture>
