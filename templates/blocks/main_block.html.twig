@@ -8,16 +8,10 @@
     {% set model_name = model.brand.name~' '~model.name~' '~model.rusName %}
 {% endif %}
 
-{% if app.request.pathInfo != '/' %}
-<style>
-    .block1 {
-        background: url('../img/avtoservis.jpg')  no-repeat center/cover fixed;
-    }
-</style>
-{% else %}
+{% if app.request.pathInfo == '/' %}
     <style>
         .block1 {
-            background: url('../img/banner.jpg')  no-repeat center/cover fixed;
+            background: url('../img/banner.jpg') no-repeat center/cover fixed;
         }
     </style>
 {% endif %}
@@ -28,7 +22,7 @@
         <div class="container ">
 
             <h1>{{ get_title_h1(service_entity, brand_name, model_name) }}</h1>
-         
+
             <div class="block1-btnwrap">
                 <div class="mbtn mbtn2 modal-form-open" data-name="Диагностика"
                      data-type="diagnostic">Диагностика

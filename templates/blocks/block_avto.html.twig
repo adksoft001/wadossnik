@@ -28,7 +28,7 @@
                         {% if service.slug == 'remont-korobki-dsg' and url not in ['volkswagen', 'audi', 'skoda'] %}
 
                         {% else %}
-                            <a href="/{{ url }}/{{ service.slug }}"
+                            <a href="/{{ url }}/{{ service.slug }}/"
                                class="{{ service.slug }}">{{ service.name }}</a>
                         {% endif %}
                     {% endif %}
@@ -41,7 +41,7 @@
                         {% if service.slug == 'remont-korobki-dsg' and url not in ['volkswagen', 'audi', 'skoda'] %}
 
                         {% else %}
-                            <a href="/{{ url }}/{{ service.slug }}"
+                            <a href="/{{ url }}/{{ service.slug }}/"
                                class="{{ service.slug }}">{{ service.name }}</a>
                         {% endif %}
                     {% endif %}
