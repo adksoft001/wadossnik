@@ -1,7 +1,7 @@
 {% if model is defined  and service is defined %}
-    {{ service.name~' '~model.brand.name~' '~model.brand.rusName~' '~model.name }}
+    {{ service.name~' '~model.brand.name~' '~model.name }}
 {% elseif brand is defined and service is defined %}
-    {{ service.name~' '~brand.name~' '~brand.rusName }}
+    {{ service.name~' '~brand.name }}
 {% else %}
     Ремонт двигателя {% if model is defined %} {{ model.brand.name }} {{ model.name }} {{ model.rusName }} {% elseif brand is defined %} {{ brand.header }} {% endif %}
 {% endif %}

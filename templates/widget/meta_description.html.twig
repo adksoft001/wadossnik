@@ -4,6 +4,8 @@
     <meta name="description" content="{{ get_description_model_page(service_entity, model) }}"/>
 {% elseif is_simple_page(app.request.pathInfo) %}
     <meta name="description" content="{{ get_description_simple_page(app.request.pathInfo, service_entity) }}">
-{% elseif brand is not defined %}
+{% elseif app.request.pathInfo == '/' %}
     <meta name="description" content="{{ get_description_basic_site() }}"/>
+{% elseif service_entity is defined and model is not defined and brand is not defined %}
+    <meta name="description" content="{{ get_service_description(service_entity) }}"/>
 {% endif %}

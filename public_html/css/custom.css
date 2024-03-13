@@ -726,7 +726,9 @@
     color: #a0ca4c
 }
 
-
+.gallery h2 {
+    padding-top: 50px;
+}
 
 .btn-reset-gallery {
     border: none;

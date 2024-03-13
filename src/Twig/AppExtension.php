@@ -38,6 +38,8 @@ class AppExtension extends AbstractExtension
             new TwigFunction('get_services_for_price_list', [ServiceRuntime::class, 'get_services_for_price_list']),
             new TwigFunction('get_service', [ServiceRuntime::class, 'get_service']),
             new TwigFunction('under_price_text', [$this, 'under_price_text']),
+            new TwigFunction('get_service_title', [$this, 'get_service_title']),
+            new TwigFunction('get_service_description', [$this, 'get_service_description']),
         ];
     }
 
@@ -141,7 +143,6 @@ class AppExtension extends AbstractExtension
             '/price_list/' => "Прайс лист | Автосервис АМ+",
             '/contacts/' => "Контакты | Автосервис АМ+",
         };
-
     }
 
     /**
@@ -185,6 +186,30 @@ class AppExtension extends AbstractExtension
         return $name . ' ' . $brand->getName() . ' ' . $brand->getRusName() . ' в Москве | АМ+';
     }
 
+    public function get_service_title(Service|SubService|ChildService|null $service): string
+    {
+        $serviceName = $this->get_service_name($service);
+        $name = $this->ucfirst($serviceName);
+
+        if (str_contains('Электрооборудование', $name)) {
+            $name = 'Ремонт электрооборудования';
+        }
+
+        return $name . ' цена в Москве | АМ+';
+    }
+
+    public function get_service_description(Service|SubService|ChildService|null $service): string
+    {
+        $serviceName = $this->get_service_name($service);
+        $name = $this->ucfirst($serviceName);
+
+        if (str_contains('Электрооборудование', $name)) {
+            $name = 'Ремонт электрооборудования';
+        }
+
+        return $name . ' в Москве. ⭐ Автосервис АМ Плюс. ✔️ Бесплатная диагностика подвески. ⏩ ' . $name . ' цена.';
+    }
+
     /**
      * Генерация мета-тегов description для страниц моделей
      */
@@ -214,11 +239,18 @@ class AppExtension extends AbstractExtension
     public function get_title_h1(Service|SubService|ChildService|null $service, string $brand = '', string $model = ''): string
     {
         $serviceName = $this->get_service_name($service) ?? "Ремонт и сервис";
+        $name = $this->ucfirst($serviceName);
+
+        if (str_contains('Электрооборудование', $name)) {
+            $name = 'Ремонт электрооборудования';
+        }
 
         if ($brand) {
-            $str = $this->ucfirst($serviceName) . ' ' . $brand . ' в Москве';
+            $str = $name . ' ' . $brand . ' в Москве';
         } elseif ($model) {
-            $str = $this->ucfirst($serviceName) . ' ' . $model . ' в Москве';
+            $str = $name . ' ' . $model . ' в Москве';
+        } elseif ($serviceName && $_SERVER['REQUEST_URI'] !== '/') {
+            $str = $name . ' в Москве';
         } else {
             $str = 'Автосервис «АМ+» — ремонт авто в Москве';
         }

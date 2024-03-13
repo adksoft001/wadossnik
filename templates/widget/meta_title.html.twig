@@ -1,10 +1,11 @@
 {% if brand is defined %}
-        <title>{{ get_title_brand_page(service_entity, brand) }}</title>
+    <title>{{ get_title_brand_page(service_entity, brand) }}</title>
 {% elseif model is defined %}
     <title>{{ get_title_model_page(service_entity, model) }}</title>
 {% elseif is_simple_page(app.request.pathInfo) %}
     <title>{{ get_title_simple_page(app.request.pathInfo, service_entity) }}</title>
-{% elseif brand is not defined %}
+{% elseif app.request.pathInfo == '/'%}
     <title>{{ get_title_basic_site() }}</title>
+{% elseif service_entity is defined and model is not defined and brand is not defined %}
+    <title>{{ get_service_title(service_entity) }}</title>
 {% endif %}
-
