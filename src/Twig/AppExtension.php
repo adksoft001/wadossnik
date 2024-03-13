@@ -103,7 +103,8 @@ class AppExtension extends AbstractExtension
     public function is_simple_page(string $page_name): bool
     {
         return match ($page_name) {
-            '/services/', '/price_list/', '/promo/', '/contacts/' => true,
+            '/services/', '/price_list/', '/contacts/', '/about/',
+            '/pricing-coupons/', '/reviews/', '/certificates/', "/gallery/" => true,
             default => false,
         };
     }
@@ -113,13 +114,15 @@ class AppExtension extends AbstractExtension
      */
     public function get_description_simple_page(string $page, ?Service $service): string
     {
-        $serviceName = $this->get_service_name($service);
-
         return match ($page) {
-            '/services/' => "Услуги на " . mb_strtolower($serviceName) . ". Автосервис Моторист.",
-            '/price_list/' => 'Прайс лист на ' . mb_strtolower($serviceName) . '. Автосервис Моторист',
-            '/contacts/' => 'Контакты и схема проезда. Автосервис Моторист по ' . str_replace('ремонт', 'ремонту', mb_strtolower($serviceName)),
-            '/promo/' => 'Акции на ' . mb_strtolower($serviceName) . '. Автосервис Моторист.'
+            '/services/' => "Услуги и цены по ремонту и обслуживанию авто - автосервис АМ+.",
+            '/about/' => "О автосервисе АМ+. Полезная информация о нашей компании.",
+            '/pricing-coupons/' => "Необходимая информация для корпоративных клиентов и юридических лиц",
+            '/reviews/' => "Независимые отзывы от наших клиентов. Автосервис АМ+",
+            '/certificates/' => "Наши сертификаты. Сертифицированный автосервис АМ+",
+            "/gallery/" => "Примеры и фотографии выполненных работ - автосервис АМ+",
+            '/price_list/' => ' Прайс лист на ремонт и обслуживание авто - автосервис АМ+',
+            '/contacts/' => "Контакты и схема проезда - автосервис АМ+",
         };
     }
 
@@ -128,13 +131,15 @@ class AppExtension extends AbstractExtension
      */
     public function get_title_simple_page(string $page, ?Service $service_from_domain): string
     {
-        $serviceName = $this->get_service_name($service_from_domain);
-
         return match ($page) {
-            '/services/' => "Наши услуги  - Автосервис Моторист по " . str_replace('ремонт', 'ремонту', mb_strtolower($serviceName)),
-            '/price_list/' => "Прайс лист - Автосервис Моторист по " . str_replace('ремонт', 'ремонту', mb_strtolower($serviceName)),
-            '/contacts/' => "Наши контакты - Автосервис Моторист по " . str_replace('ремонт', 'ремонту', mb_strtolower($serviceName)),
-            '/promo/' => "Наши акции - Автосервис Моторист по " . str_replace('ремонт', 'ремонту', mb_strtolower($serviceName)),
+            '/services/' => "Услуги и цены | Автосервис АМ+",
+            '/about/' => "О компании | Автосервис АМ+",
+            '/pricing-coupons/' => "Корпоративным клиентам | Автосервис АМ+",
+            '/reviews/' => "Отзывы | Автосервис АМ+",
+            '/certificates/' => "Сертификаты | Автосервис АМ+",
+            "/gallery/" => "Примеры выполненных работ | Автосервис АМ+",
+            '/price_list/' => "Прайс лист | Автосервис АМ+",
+            '/contacts/' => "Контакты | Автосервис АМ+",
         };
 
     }
