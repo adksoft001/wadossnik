@@ -261,9 +261,9 @@ class AppExtension extends AbstractExtension
     /**
      * Генерация заголовков перед прайс-листом
      */
-    public function get_title_h2(Service|SubService|ChildService|null $service, string $brand = '', string $model = ''): string
+    public function get_title_h2(Service|SubService|ChildService|null $service, Brand $brand = null, Model $model = null): string
     {
-        $name = 'Ремонт и обслуживание';
+        $name = null;
         if ($service) {
             $serviceName = $this->get_service_name($service);
             $name = $this->ucfirst($serviceName);
@@ -273,16 +273,14 @@ class AppExtension extends AbstractExtension
             }
         }
 
-        if ($brand) {
-            $str = $name . ' ' . $brand . ' цена:';
-        } elseif ($model) {
-            $str = $name . ' ' . $model . ' цена:';
-        } elseif ($_SERVER['REQUEST_URI'] !== '/') {
-            $str = $name . ' цена:';
-        } else {
-            $str = 'Ремонт и обслуживание авто цены:';
-        }
-        return $str;
+        return match (true) {
+            $brand && !$name => 'Ремонт ' . $brand->getName() . ' ' . $brand->getRusName() . ' цена:',
+            $model && !$name => 'Ремонт ' . $model->getBrand()->getName() . ' ' . $model->getName() . ' ' . $model->getRusName() . ' цена:',
+            $brand && $name => $name . ' ' . $brand->getName() . ' цена:',
+            $model && $name => $name . ' ' . $model->getBrand()->getName() . ' ' . $model->getName() . ' цена:',
+            $_SERVER['REQUEST_URI'] !== '/' => $name . ' цена:',
+            default => 'Ремонт и обслуживание авто цены:',
+        };
     }
 
     /**

@@ -1,11 +1,1 @@
-{% set brand_name = '' %}
-{% if brand is defined %}
-    {% set brand_name = brand.name %}
-{% endif %}
-
-{% set model_name = '' %}
-{% if model is defined %}
-    {% set model_name = model.brand.name~' '~model.name %}
-{% endif %}
-
-{{ get_title_h2(service ?? null, brand_name, model_name) }}
+{{ get_title_h2(service ?? null, brand ?? null, model ?? null) }}
