@@ -1,7 +1,11 @@
-{% if model is defined  and service is defined %}
-    {{ service.name~' '~model.brand.name~' '~model.name }}
-{% elseif brand is defined and service is defined %}
-    {{ service.name~' '~brand.name }}
-{% else %}
-    Ремонт двигателя {% if model is defined %} {{ model.brand.name }} {{ model.name }} {{ model.rusName }} {% elseif brand is defined %} {{ brand.header }} {% endif %}
+{% set brand_name = '' %}
+{% if brand is defined %}
+    {% set brand_name = brand.name %}
 {% endif %}
+
+{% set model_name = '' %}
+{% if model is defined %}
+    {% set model_name = model.brand.name~' '~model.name %}
+{% endif %}
+
+{{ get_title_h2(service ?? null, brand_name, model_name) }}

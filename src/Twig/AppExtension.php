@@ -30,6 +30,7 @@ class AppExtension extends AbstractExtension
             new TwigFunction('get_description_model_page', [$this, 'get_description_model_page']),
             new TwigFunction('is_service_from_domain_special_site', [$this, 'is_service_from_domain_special_site']),
             new TwigFunction('get_title_h1', [$this, 'get_title_h1']),
+            new TwigFunction('get_title_h2', [$this, 'get_title_h2']),
             new TwigFunction('get_domain_zone', [$this, 'get_domain_zone']),
             new TwigFunction('get_all_services', [ServiceRuntime::class, 'get_all_services']),
             new TwigFunction('get_all_promo', [PromoRuntime::class, 'get_all_promo']),
@@ -253,6 +254,33 @@ class AppExtension extends AbstractExtension
             $str = $name . ' в Москве';
         } else {
             $str = 'Автосервис «АМ+» — ремонт авто в Москве';
+        }
+        return $str;
+    }
+
+    /**
+     * Генерация заголовков перед прайс-листом
+     */
+    public function get_title_h2(Service|SubService|ChildService|null $service, string $brand = '', string $model = ''): string
+    {
+        $name = 'Ремонт и обслуживание';
+        if ($service) {
+            $serviceName = $this->get_service_name($service);
+            $name = $this->ucfirst($serviceName);
+
+            if (str_contains('Электрооборудование', $name)) {
+                $name = 'Ремонт электрооборудования';
+            }
+        }
+
+        if ($brand) {
+            $str = $name . ' ' . $brand . ' цена:';
+        } elseif ($model) {
+            $str = $name . ' ' . $model . ' цена:';
+        } elseif ($_SERVER['REQUEST_URI'] !== '/') {
+            $str = $name . ' цена:';
+        } else {
+            $str = 'Ремонт и обслуживание авто цены:';
         }
         return $str;
     }
