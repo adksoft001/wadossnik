@@ -65,6 +65,7 @@
     border-radius: 20px;
     display: block;
     margin: auto;
+    /*height: 597px;*/
 }
 .about_company_slider__nav {
     position: absolute;
@@ -121,6 +122,9 @@
     .about_company__block__right__item:last-child {
         border-bottom: none;
     }
+    .about_company_slider img{
+        height: 385px;
+    }
 }
 @media(max-width: 400px){
     .about_company__block__right__item img{
@@ -137,6 +141,9 @@
     }
     .about_company__block__right__item__text small {
         font-size: 12px;
+    }
+    .about_company_slider img{
+        height: 244px;
     }
 }
 

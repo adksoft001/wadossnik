@@ -9,7 +9,7 @@
                             <div class="slider__items">
                                 {% for i in 1..6 %}
                                     <div class="slider__item">
-                                        <img class="all_block" src="{{ asset('/img/amplus/about_company/'~i~'.jpg') | imagine_filter('thumbnail_gallery_img', {"thumbnail": {"size": [800, 600] }}) }}" alt="img">
+                                        <img class="all_block" src="{{ asset('/img/amplus/about_company/'~i~'.jpg') | imagine_filter('thumbnail_about_block') }}" alt="img">
                                     </div>
                                 {% endfor %}
                             </div>
