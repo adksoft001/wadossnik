@@ -170,7 +170,6 @@ $(".mobile-touch-path").on("touchstart", function (event) {
     let naviPath = touchButton.data("touch");
     window.location = naviPath;
 });
-
 // ФОС
 $("#client_phone").mask("+7 (999) 999-99-99");
 $('.modal-form-open').click(function (event) {
@@ -183,7 +182,7 @@ $('.modal-form-open').click(function (event) {
 });
 $("#form-recall-send").click(function (event) {
     event.preventDefault();
-    // yaCounter96741399.reachGoal('fos_send')
+    yaCounter96741399.reachGoal('fos_send')
     let form = $(this).closest('#recall-form');
     let client_name = form.find('input[name=client_name]').val();
     let client_phone = form.find('input[name=client_phone]').val();
@@ -211,20 +210,16 @@ $("#form-recall-send").click(function (event) {
             phone: client_phone,
             page: page,
         },
-        success: function (data) {
-            if (data.success) {
-                showNotification('Отправлено!', 'Ваш отклик на вакансию получен!');
-            } else {
-                showNotification('Ошибка!', 'Ой, что то пошло не так, попробуйте позже отправить заявку или перезвоните по указоному номеру!', true);
-            }
+        success: function () {
+            showNotification('Отправлено!', 'Ваша заявка получена, мы перезвоним в течении 30 секунд');
         },
         error: function () {
             showNotification('Ошибка!', 'Ой, что то пошло не так, попробуйте позже отправить заявку или перезвоните по указоному номеру!', true);
         }
     });
-    showNotification('Отправлено!', 'Ваша заявка получена, мы перезвоним в течении 30 секунд');
     return false;
 });
+
 function showNotification(header, message, closeExisting = false) {
     let modal = $("#modal-report");
     modal.find("#modal-report-header").text(header);
