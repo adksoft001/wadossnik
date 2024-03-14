@@ -74,6 +74,7 @@
 
 <div class="modal modal-form" id="modal-form">
     <form id="recall-form">
+        <input type="hidden" name="page" value="{{ app.request.pathInfo }}">
         <h4 class="text-center" id="recall-form-name">Бесплатная диагностика</h4>
         <div class="form-group">
             <label for="client_name">Ваше имя</label>

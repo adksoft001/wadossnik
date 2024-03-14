@@ -164,11 +164,15 @@ $('.seo-skrcont-open').click(function (event) {
     $('.seo-skrcont-open').slideToggle(500)
 });
 
-// Работа с модальными формами
+$(".mobile-touch-path").on("touchstart", function (event) {
+    event.preventDefault();
+    let touchButton = $(this);
+    let naviPath = touchButton.data("touch");
+    window.location = naviPath;
+});
 
-
+// ФОС
 $("#client_phone").mask("+7 (999) 999-99-99");
-
 $('.modal-form-open').click(function (event) {
     event.preventDefault();
     this.blur();
@@ -177,21 +181,13 @@ $('.modal-form-open').click(function (event) {
     modalForm.find("#recall-form-name").text(button.data('name'));
     modalForm.modal();
 });
-
-let dataType = '';
-
 $("#form-recall-send").click(function (event) {
     event.preventDefault();
-
+    // yaCounter96741399.reachGoal('fos_send')
     let form = $(this).closest('#recall-form');
     let client_name = form.find('input[name=client_name]').val();
     let client_phone = form.find('input[name=client_phone]').val();
-
-    //vacancy
-    let vacancy_status = false;
-    if (dataType === 'vacancy') {
-        vacancy_status = true;
-    }
+    let page = form.find('input[name=page]').val();
 
     if (client_name === '') {
         showNotification('Предупреждение!', 'Поле "Имя" не заполнено!', true);
@@ -207,68 +203,30 @@ $("#form-recall-send").click(function (event) {
         return false;
     }
 
-    if (vacancy_status) {
-        $.ajax({
-            type: "POST",
-            url: '/send_mail',
-            data: {
-                username: client_name,
-                phone: client_phone,
-            },
-            success: function (data) {
-                if (data.success) {
-                    showNotification('Отправлено!', 'Ваш отклик на вакансию получен!');
-                } else {
-                    showNotification('Ошибка!', 'Ой, что то пошло не так, попробуйте позже отправить заявку или перезвоните по указоному номеру!', true);
-                }
-            },
-            error: function (error) {
+    $.ajax({
+        type: "POST",
+        url: '/send_mail',
+        data: {
+            username: client_name,
+            phone: client_phone,
+            page: page,
+        },
+        success: function (data) {
+            if (data.success) {
+                showNotification('Отправлено!', 'Ваш отклик на вакансию получен!');
+            } else {
                 showNotification('Ошибка!', 'Ой, что то пошло не так, попробуйте позже отправить заявку или перезвоните по указоному номеру!', true);
             }
-        });
-        dataType = '';
-        return false;
-    }
-
-    var paramsString = window.location.host;
-
-    if (paramsString === 'remont-turbiny.com') {
-        var groupId = 467916;
-    } else {
-        // groupId = 325503;
-        groupId = 553765;
-    }
-
-    if (window.ComagicWidget) {
-        console.log(groupId);
-        let t = +new Date() + 10000;
-        ComagicWidget.sitePhoneCall({
-            phone: client_phone,
-            group_id: groupId,
-            delayed_call_time: t.toString()
-        });
-
-        if (paramsString === 'remont-turbiny.com') {
-            yaCounter92047965.reachGoal('fos_otpravit');
-            console.log('Цель fos_otpravit remont-turbiny');
-        } else if (paramsString === 'remont-dizelnogo-dvigatelya.com') {
-            yaCounter92047978.reachGoal('fos_otpravit');
-            console.log('Цель fos_otpravit remont-dizelnogo-dvigatelya');
-        } else if (paramsString === 'remont-dvigatelya.com') {
-            yaCounter92048006.reachGoal('fos_otpravit');
-            console.log('Цель fos_otpravit remont-dvigatelya');
+        },
+        error: function () {
+            showNotification('Ошибка!', 'Ой, что то пошло не так, попробуйте позже отправить заявку или перезвоните по указоному номеру!', true);
         }
-    }
-
+    });
     showNotification('Отправлено!', 'Ваша заявка получена, мы перезвоним в течении 30 секунд');
-
     return false;
 });
-
 function showNotification(header, message, closeExisting = false) {
-
     let modal = $("#modal-report");
-
     modal.find("#modal-report-header").text(header);
     modal.find("#modal-report-massage").text(message);
 
@@ -280,24 +238,3 @@ function showNotification(header, message, closeExisting = false) {
         modal.modal();
     }
 }
-
-$('.form-recall-ok').click(function () {
-    var paramsString = window.location.host;
-    if (paramsString === 'remont-turbiny.com') {
-        yaCounter92047965.reachGoal('fos_okey');
-        console.log('Цель fos_okey remont-turbiny');
-    } else if (paramsString === 'remont-dizelnogo-dvigatelya.com') {
-        yaCounter92047978.reachGoal('fos_okey');
-        console.log('Цель fos_okey remont-dizelnogo-dvigatelya');
-    } else if (paramsString === 'remont-dvigatelya.com') {
-        yaCounter92048006.reachGoal('fos_okey');
-        console.log('Цель fos_okey remont-turbiny');
-    }
-});
-
-$(".mobile-touch-path").on("touchstart", function (event) {
-    event.preventDefault();
-    let touchButton = $(this);
-    let naviPath = touchButton.data("touch");
-    window.location = naviPath;
-});

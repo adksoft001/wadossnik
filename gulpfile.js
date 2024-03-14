@@ -52,14 +52,14 @@ gulp.task('compress_css', function () {
 
 gulp.task('js', function () {
     return gulp.src([
-        "public/js/jquery.min.js",
-        "public/js/slick.min.js",
-        "public/js/libs/jquery.fancybox.js",
-        "public/js/script.js",
-        "public/js/mango.js",
-        "public/js/libs/jquery.modal.js",
-        "public/js/libs/lazyload.min.js",
-        "public/js/seofilter.js"
+        "public_html/js/jquery.min.js",
+        "public_html/js/slick.min.js",
+        "public_html/js/libs/jquery.fancybox.js",
+        "public_html/js/script.js",
+        "public_html/js/mango.js",
+        "public_html/js/libs/jquery.modal.js",
+        "public_html/js/libs/lazyload.min.js",
+        "public_html/js/seofilter.js"
     ])
 
         .pipe(sourcemaps.init())
@@ -71,15 +71,15 @@ gulp.task('js', function () {
             ecma: 6
         }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest("public/js"));
+        .pipe(gulp.dest("public_html/js"));
 });
 
 gulp.task('compress_js', function () {
     return gulp.src([
-        "./public/js/main.min.js"
+        "./public_html/js/main.min.js"
     ])
         .pipe(gzip({postExtension: 'gz'}))
-        .pipe(gulp.dest("public/js"));
+        .pipe(gulp.dest("public_html/js"));
 });
 
 gulp.task('styles', gulp.series('scss', 'compress_css', 'compress_library_css'));
@@ -87,5 +87,5 @@ gulp.task('scripts', gulp.series('js', 'compress_js'));
 
 gulp.task('default', function () {
     gulp.watch('./public/sass/*.scss', ['styles']);
-    gulp.watch('./public/js/*.js', ['scripts']);
+    gulp.watch('./public_html/js/*.js', ['scripts']);
 });
