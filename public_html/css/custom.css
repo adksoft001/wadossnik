@@ -1325,7 +1325,7 @@
 }
 
 .block1 {
-    background: url('../img/avtoservis.jpg') center no-repeat;
+    background: url('../img/banner.jpg') center no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -1478,7 +1478,8 @@
 }
 
 .rabotiblock {
-    margin-top: 60px
+    margin-top: 60px;
+    overflow: hidden;
 }
 
 .rabotiblock-slider-s {
