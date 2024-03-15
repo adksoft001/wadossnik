@@ -16,7 +16,7 @@
             </div>
 
             {% if model is defined %}
-                {% set url = 'remont-i-servis-'~model.brand.url~'/'~model.url %}
+                {% set url = 'remont-i-servis-'~model.brand.url~'/'~model.url|lower %}
             {% else %}
                 {% set url = 'remont-i-servis-'~brand.url %}
             {% endif %}
