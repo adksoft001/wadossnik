@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BotController extends AbstractController
 {
     const TOKEN = '7061105523:AAG_TsmypzumDdj7o29XcoDCTPBQSfbmv60';
-    const CHATID = '-4168289384';
+    const CHATID = '-1002012952797';
 
     #[Route('/send_mail', name: 'app_mail')]
     public function send(Request $request): JsonResponse
