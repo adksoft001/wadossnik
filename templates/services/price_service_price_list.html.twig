@@ -20,11 +20,11 @@
             <div class="important_block">
                 <strong class="priv_act_nvv">
                     <span class="zvezda_diagnostika">🔥</span>
-                    <span style="font-size: 24px;">ДИАГНОСТИКА за 490₽ по 43 параметрам</span>
+                    <span style="font-size: 24px;">Бесплатная диагностика подвески (ходовой)</span>
                 </strong>.<br>
                 <span class="galka_diagnostika">⛔</span>
-                <i style="font-weight: lighter; margin-top: 5px;font-size: 16px"> Диагностика в подарок при ремонте в
-                    нашем специализированном автосервисе «Моторист»</i>
+                <i style="font-weight: lighter; margin-top: 5px;font-size: 16px">Диагностика ходовой части авто при
+                    первом посещении нашего сервиса бесплатно</i>
                 <br>
                 <i style="font-weight: lighter; margin-top: 5px;font-size: 16px">
                     {{ under_price_text(service_from_domain.slug ?? '') }}
@@ -32,10 +32,16 @@
             </div>
         </div>
 
-        <div class="calc__btns">
-            <a href="#diagnostics" class="btn-reset open_modal btn calc__btn">диагностика</a>
-            <button class="btn-reset open_modal btn calc__btn calc__btn-mid">получить консультацию</button>
-            <button class="btn-reset open_modal btn calc__btn">заявка на эвакуатор</button>
+        <div class="block1-btnwrap block1-btnwrap-underprice">
+            <div class="mbtn mbtnot modal-form-open" data-name="Получить консультацию" data-type="diagnostic">
+                Диагностика
+            </div>
+            <div class="mbtn mbtnot modal-form-open" data-name="Получить консультацию" data-type="consultation">Получить
+                консультацию
+            </div>
+            <div class="mbtn mbtnot modal-form-open" data-name="Заявка на эвакуатор" data-type="evacuator">Заявка на
+                эвакуатор
+            </div>
         </div>
 
     </div>
