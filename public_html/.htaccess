@@ -1,4 +1,7 @@
 FallbackResource /index.php
 Options +FollowSymLinks
 
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
 RewriteRule ^(?!img/favicon\.svg$).*$ index.php [L]
