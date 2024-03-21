@@ -1,7 +1,78 @@
+RewriteEngine On
+
+RewriteRule ^remont-i-servis-(.*)/tekhnicheskoe-obsluzhivanie/$ /remont-i-servis-$1/tehnicheskoe-obsluzhivanie/ [R=301,L]
+RewriteRule ^remont-i-servis-(.*)/(.*)/tekhnicheskoe-obsluzhivanie/$ /remont-i-servis-$1/$2/tehnicheskoe-obsluzhivanie/ [R=301,L]
+
+RewriteRule ^remont-i-servis-(.*)/kuzovnoy-remont/$ /remont-i-servis-$1/kuzovnoj-remont/ [R=301,L]
+RewriteRule ^remont-i-servis-(.*)/(.*)/kuzovnoy-remont/$ /remont-i-servis-$1/$2/kuzovnoj-remont/ [R=301,L]
+
+RewriteRule ^remont-i-servis-(.*)/elektrooborudovanie/$ /remont-i-servis-$1/remont-elektrooborudovaniya/ [R=301,L]
+RewriteRule ^remont-i-servis-(.*)/(.*)/elektrooborudovanie/$ /remont-i-servis-$1/$2/remont-elektrooborudovaniya/ [R=301,L]
+
+RewriteRule ^tekhnicheskoe-obsluzhivanie/$ /tehnicheskoe-obsluzhivanie/ [R=301,L]
+RewriteRule ^kuzovnoy-remont/$ /kuzovnoj-remont/ [R=301,L]
+RewriteRule ^elektrooborudovanie/$ /remont-elektrooborudovaniya/ [R=301,L]
+RewriteRule ^video/mini.m4v/$ /video/mini.m4v [L,R=301]
+
 FallbackResource /index.php
 Options +FollowSymLinks
 
 RewriteCond %{HTTP_HOST} ^www\.(.*)$
 RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
 
-RewriteRule ^(?!img/favicon\.svg$).*$ index.php [L]
+#RewriteRule ^(?!img/favicon\.svg$).*$ index.php [L]
+
+
+
+Redirect 301 /toyota/ /remont-i-servis-toyota/
+Redirect 301 /seat/ /remont-i-servis-seat/
+Redirect 301 /honda/ /remont-i-servis-honda/
+Redirect 301 /ford/ /remont-i-servis-ford/
+Redirect 301 /volkswagen-2/ /remont-i-servis-volkswagen/
+Redirect 301 /volkswagen/ /remont-i-servis-volkswagen/
+Redirect 301 /skoda/ /remont-i-servis-skoda/
+Redirect 301 /opel/ /remont-i-servis-opel/
+Redirect 301 /suzuki/ /remont-i-servis-suzuki/
+Redirect 301 /bmw/ /remont-i-servis-bmw/
+Redirect 301 /mitsubishi/ /remont-i-servis-mitsubishi/
+Redirect 301 /audi/ /remont-i-servis-audi/
+Redirect 301 /kia/ /remont-i-servis-kia/
+Redirect 301 /toyota-2/ /remont-i-servis-toyota/
+Redirect 301 /mazda/ /remont-i-servis-mazda/
+Redirect 301 /honda-2/ /remont-i-servis-honda/
+Redirect 301 /nissan/ /remont-i-servis-nissan/
+Redirect 301 /chevrolet/ /remont-i-servis-chevrolet/
+Redirect 301 /hyundai/ /remont-i-servis-hyundai/
+Redirect 301 /otzyvy/ /
+Redirect 301 /kuzonvnoy-remont/pokraska-otdelnykh-detaley/ /kuzovnoj-remont/
+Redirect 301 /policy/ /
+Redirect 301 /kuzonvnoy-remont/armaturnye-i-zhestyanye-raboty/ /remont-i-servis-toyota/
+Redirect 301 /foto/ /
+Redirect 301 /price/ /price_list/
+Redirect 301 /zapchasti/ /
+Redirect 301 /kuzonvnoy-remont/ /kuzovnoj-remont/
+Redirect 301 /about-us/ /about/
+Redirect 301 /kuzonvnoy-remont/pokraska/ /kuzovnoj-remont/
+Redirect 301 /kuzonvnoy-remont/zamena-ustanovka-stekol/ /kuzovnoj-remont/
+Redirect 301 /faq/ /
+Redirect 301 /skhod-razval/ /shod-razval/
+Redirect 301 /kuzonvnoy-remont/bamper/ /kuzovnoj-remont/
+Redirect 301 /kuzonvnoy-remont/polirovka-avtomobilya/ /kuzovnoj-remont/
+Redirect 301 /kuzonvnoy-remont/zamena-kuzovnykh-detaley/ /kuzovnoj-remont/
+Redirect 301 /rem-torm/ /remont-tormoznoj-sistemy/
+Redirect 301 /kuzonvnoy-remont/geometrya-kyzova/ /kuzovnoj-remont/
+Redirect 301 /to/ /tehnicheskoe-obsluzhivanie/
+Redirect 301 /rem-trans/ /
+Redirect 301 /srepair/ /
+Redirect 301 /kuzonvnoy-remont/lokalnyy-remont-udalenie-vmyatin/ /kuzovnoj-remont/
+Redirect 301 /rem-podves/ /remont-hodovoj-podveski/
+Redirect 301 /2019/03/18/otzivi/ /
+Redirect 301 /condition/ /remont-avtokondicionera/
+Redirect 301 /rem-engine/ /remont-dvigatelya/
+Redirect 301 /electric/ /elektrooborudovanie/
+
+
+
+
+
+

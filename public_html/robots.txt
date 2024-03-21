@@ -1,4 +1,6 @@
 User-agent: *
 Disallow: /_profiler/
 Clean-param: etext
-Disallow: /
+
+Host: https://autocarplus.ru/
+Sitemap: https://autocarplus.ru/sitemap.xml
