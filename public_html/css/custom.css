@@ -1633,3 +1633,7 @@
 .phone__data {
     font-size: 12px;
 }
+
+.d-block img {
+    max-width: 70%;
+}
