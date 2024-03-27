@@ -79,3 +79,10 @@ liip_imagine:
         filters:
           upscale:
               min: [800, 600]
+
+      thumbnail_cert_block:
+        format: webp
+        quality: 100
+        filters:
+          upscale:
+            min: [ 400, 600 ]

@@ -10,9 +10,9 @@
                 <div class="swiper-wrapper">
                     {% for i in 1..8 %}
                         <div class="swiper-slide">
-                            <a class="gallery"  data-fslightbox="gallery"
-                               href="{{ asset('img/certificate/'~i~'.jpg') }}" style="height: 40%">
-                                <img src="{{ asset('img/certificate/'~i~'.jpg') }}" alt="сертификат" class="cert-img">
+                            <a class="gallery"  data-fslightbox="gallery" href="{{ asset('img/certificate/'~i~'.jpg') }}" style="height: 40%">
+                                <source data-srcset="{{ asset('img/certificate/'~i~'.jpg') | imagine_filter('thumbnail_cert_block') }}" type="image/webp">
+                                <img class="lazy cert-img" data-src="{{ asset('img/certificate/'~i~'.jpg') | imagine_filter('thumbnail_cert_block') }}" alt="сертификат">
                             </a>
                         </div>
                     {% endfor %}

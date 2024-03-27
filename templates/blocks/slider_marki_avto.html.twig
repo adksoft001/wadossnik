@@ -8,9 +8,9 @@
                        class="markiblock-card">
                 <span class="markiblock-card-img">
                         <picture>
-                             <source srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
+                             <source class="lazy" data-srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
                                      type="image/webp">
-                             <img src="{{ asset('img/brands/'~brand.url~'.png') }}" alt="{{ brand.name }}">
+                             <img class="lazy" data-src="{{ asset('img/brands/'~brand.url~'.png') }}" alt="{{ brand.name }}">
                         </picture>
                 </span>
                         <span class="markiblock-card-zag">{{ brand.name }}</span>
@@ -28,9 +28,9 @@
                                class="markiblock-card">
                         <span class="markiblock-card-img">
                                 <picture>
-                                     <source srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
+                                     <source class="lazy" data-srcset="{{ asset('img/brands/'~brand.url~'.png') | imagine_filter('thumbnail_brand_img') }}"
                                              type="image/webp">
-                                     <img src="{{ asset('img/brands/'~brand.url~'.png') }}" alt="{{ brand.name }}">
+                                     <img class="lazy" data-src="{{ asset('img/brands/'~brand.url~'.png') }}" alt="{{ brand.name }}">
                                 </picture>
                         </span>
                                 <span class="markiblock-card-zag">{{ brand.name }}</span>

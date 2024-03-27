@@ -8,9 +8,9 @@
                     <a href="{{ path('dynamic_pages', { token:'remont-i-servis-'~brand.url~'/'~model_name~'/' }) }}" class="markiblock-card">
                 <span class="markiblock-card-img">
                         <picture>
-                             <source srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
+                             <source class="lazy" data-srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
                                      type="image/webp">
-                             <img src="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') }}" alt="{{ model.name }}">
+                             <img class="lazy" data-src="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') }}" alt="{{ model.name }}">
                         </picture>
                 </span>
                         <span class="markiblock-card-zag">{{ model.name }}</span>
@@ -27,10 +27,10 @@
                             <a href="{{ path('dynamic_pages', { token:'remont-i-servis-'~brand.url~'/'~model_name~'/' }) }}"
                                class="markiblock-card">
                         <span class="markiblock-card-img">
-                         <picture>
-                             <source srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
+                           <picture>
+                             <source class="lazy" data-srcset="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') | imagine_filter('thumbnail_model_small_img') }}"
                                      type="image/webp">
-                             <img src="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') }}" alt="{{ model.name }}">
+                             <img class="lazy" data-src="{{ asset('img/cars/'~brand.url~'/'~model_name~'/small.png') }}" alt="{{ model.name }}">
                         </picture>
                         </span>
                                 <span class="markiblock-card-zag">{{ model.name }}</span>

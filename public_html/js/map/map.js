@@ -1,58 +1,36 @@
 //Переменная для включения/отключения индикатора загрузки
 
+var spinner = $('.ymap-container').children('.loader');
 //Переменная для определения была ли хоть раз загружена Яндекс.Карта (чтобы избежать повторной загрузки при наведении)
 var check_if_load = false;
-
-
+//
 $("#ya-map").mouseover(function () {
     ymap();
     $("#ya-map").parent('section').addClass('showFullMap');
     $("#aside").fadeOut();
 });
-
-
 //Функция создания карты сайта и затем вставки ее в блок с идентификатором "map-yandex"
 function init() {
 
-    t = new ymaps.Map("map-yandex", {
+    var t = new ymaps.Map("map-yandex", {
         center: [55.753220, 37.622513],
         zoom: 9.5
     });
-    var udaltsova = new ymaps.Placemark([55.688228, 37.488502], {
-        hintContent: "Техцентр «Моторист»",
-        balloonContent: "Москва, ул. Удальцова, 60, к.1",
-        iconCaption: "ул. Удальцова, 60, к.1"
+    var ibragimova = new ymaps.Placemark([55.790777, 37.729026], {
+        hintContent: "Автосервис АМ Плюс",
+        balloonContent: "Москва, улица Ибрагимова, 31Ас3",
+        iconCaption: "улица Ибрагимова, 31Ас3"
     }, {
         preset: 'islands#blueRepairShopIcon',
         iconGlyphColor: 'blue',
     });
-    var sevastopolskaya = new ymaps.Placemark([55.634649, 37.543201], {
-        hintContent: "Техцентр «Моторист»",
-        balloonContent: "Москва, Севастопольский пр. 95 б, к.6",
-        iconCaption: "Севастопольский пр. 95 б, к.6"
-    }, {
-        preset: 'islands#blueRepairShopIcon',
-        iconGlyphColor: 'blue'
-    });
-    var lobnenskaya = new ymaps.Placemark([55.891821, 37.523931], {
-        hintContent: "Техцентр «Моторист»",
-        balloonContent: "Москва, ул. Лобненская д.17 к.6",
-        iconCaption: "ул. Лобненская д.17 к.6",
-    }, {
-        preset: 'islands#blueRepairShopIcon',
-        iconGlyphColor: 'blue'
-    });
+    t.geoObjects.add(ibragimova);
 
-    var nauchnyi = new ymaps.Placemark([55.65555326950616, 37.55328910779519], {
-        hintContent: "Техцентр «Моторист»",
-        balloonContent: "Москва, Научный проезд д.14а к.1",
-        iconCaption: "Научный проезд д.14а к.1",
-    }, {
-        preset: 'islands#blueRepairShopIcon',
-        iconGlyphColor: 'blue'
+    var layer = t.layers.get(0).get(0);
+    waitForTilesLoad(layer).then(function () {
+        // Скрываем индикатор загрузки после полной загрузки карты
+        spinner.removeClass('is-active');
     });
-
-    t.geoObjects.add(udaltsova).add(sevastopolskaya).add(lobnenskaya).add(nauchnyi);
 }
 
 // Функция для определения полной загрузки карты (на самом деле проверяется загрузка тайлов) 
@@ -78,9 +56,9 @@ function getTileContainer(layer) {
     for (var k in layer) {
         if (layer.hasOwnProperty(k)) {
             if (
-                layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer
-                || layer[k] instanceof ymaps.layer.tileContainer.DomContainer
-            ) {
+                    layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer
+                    || layer[k] instanceof ymaps.layer.tileContainer.DomContainer
+                    ) {
                 return layer[k];
             }
         }
@@ -94,8 +72,8 @@ function loadScript(url, callback) {
 
     if (script.readyState) {  // IE
         script.onreadystatechange = function () {
-            if (script.readyState === "loaded" ||
-                script.readyState === "complete") {
+            if (script.readyState == "loaded" ||
+                    script.readyState == "complete") {
                 script.onreadystatechange = null;
                 callback();
             }
@@ -116,6 +94,7 @@ var ymap = function () {
     if (!check_if_load) { // проверяем первый ли раз загружается Яндекс.Карта, если да, то загружаем
         // Чтобы не было повторной загрузки карты, мы изменяем значение переменной
         check_if_load = true;
+        spinner.addClass('is-active');
         // Загружаем API Яндекс.Карт
         loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;loadByRequire=1", function () {
             // Как только API Яндекс.Карт загрузились, сразу формируем карту и помещаем в блок с идентификатором "map-yandex"
@@ -124,4 +103,3 @@ var ymap = function () {
     }
 
 }
-
