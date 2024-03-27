@@ -1637,3 +1637,217 @@
 .d-block img {
     max-width: 70%;
 }
+
+/*experts*/
+.block9 {
+    margin-top: 80px;
+    text-align: center;
+    color: #46434a;
+}
+
+.block9 img {
+    max-width: 100%;
+}
+
+.block9 .rabotniki-card {
+    margin: 20px;
+}
+
+.rabotniki-card img {
+    border-radius: 20px;
+    display: unset;
+}
+
+.block9 .img {
+    position: relative;
+}
+
+.block9 .img .serts {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    border: 7px solid #8B4513;
+    width: 80px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    z-index: 2;
+}
+
+.block9 .img .serts:hover {
+    width: 84px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.block9 .rabotniki-card b {
+    display: block;
+    font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.block9 .rabotniki-card span {
+    display: block;
+    font-size: 16px;
+}
+
+@media (max-width: 991px) {
+    .scard-wrap .scard {
+        padding: 0 0 0 15px;
+    }
+
+    .scard-wrap .scard div {
+        font-size: 17px;
+        line-height: 1;
+    }
+
+    .scard-wrap .scard:before {
+        width: 30px;
+        height: 30px;
+        right: 15px;
+        top: 30px;
+    }
+}
+
+.scard-wrap {
+    margin-top: 30px;
+}
+
+.scard-wrap .scard {
+    text-align: left;
+    color: #101011;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    padding: 0 0 0 40px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 24px 25px -18px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 24px 25px -18px;
+    background: #f4f4f4 none repeat scroll 0% 0% / auto padding-box border-box;
+    min-height: 85px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    position: relative;
+}
+
+.scard-wrap .scard:hover {
+    -webkit-box-shadow: 0 0 1px 5px rgb(139, 69, 19), 0 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 1px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1px 5px rgb(139, 69, 19), 0 0 1px 10px rgba(0, 0, 0, 0.1), 0 0 1px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.scard-wrap .scard span {
+    color: #8B4513;
+    font-size: 14px;
+}
+
+.scard-wrap .scard div {
+    text-transform: uppercase;
+    font: 400 20px/20px 'Roboto', Arial, sans-serif;
+}
+
+.scard-wrap .scard:before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background: url(../img/speech-bubble2.svg) center no-repeat;
+    background-size: cover;
+    right: 25px;
+    top: 23px;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 767px) {
+    .scard-wrap .scard {
+        padding: 0 0 0 30px;
+        margin-bottom: 15px;
+    }
+
+    .scard-wrap .scard div {
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .scard-wrap .scard:before {
+        width: 40px;
+        height: 40px;
+        right: 25px;
+        top: 24px;
+    }
+}
+
+.scard-wrap .scard:before {
+    background: url(../img/fea-i3.png) center no-repeat;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    width: 52px;
+    height: 45px;
+}
+
+@media screen and (max-width: 768px) {
+    .scard-wrap .scard:before {
+        width: 52px;
+    }
+}
+
+.rabotniki-wrap {
+    justify-content: space-around;
+}
+
+.blockrabotniki {
+    position: relative;
+}
+
+.blockrabotniki .slick-prev {
+    background: url(../img/icon/slide-left-blue.svg) center no-repeat;
+    background-size: contain;
+}
+
+.blockrabotniki .slick-next {
+    background: url(../img/icon/slide-right-blue.svg) center no-repeat;
+    background-size: contain;
+}
+
+.rabotniki-card .slick-slide img {
+    display: unset !important;
+}
+
+@media (min-width: 991px) {
+    .blockrabotniki .slick-prev {
+        background: url(../img/icon/slide-left-blue.svg) center no-repeat;
+        background-size: contain;
+        left: 80px;
+    }
+
+    .blockrabotniki .slick-next {
+        background: url(../img/icon/slide-right-blue.svg) center no-repeat;
+        background-size: contain;
+        right: 80px;
+    }
+}
+
+.expert-btn {
+    width: 100%;
+}
+
+.block1 {
+    margin-bottom: 30px;
+}
+
+.utp-block {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+

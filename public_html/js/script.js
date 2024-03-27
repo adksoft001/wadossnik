@@ -133,6 +133,38 @@ $('.rabotiblock-slider').slick({
     ]
 });
 
+$(document).ready(function () {
+    $('.rabotniki-wrap').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: false,
+        responsive: [
+            {
+                breakpoint: 1800,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+                }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+});
+
 //Показываем или скрываем все марки в Блока Марки со слайдером
 
 $('.markiblock-btn').click(function (event) {
