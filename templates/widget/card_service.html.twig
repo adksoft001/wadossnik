@@ -2,7 +2,7 @@
 
     {% set img = asset( ('img/services/'~service.slug~'.jpg') | imagine_filter('thumbnail_service_card_img')) %}
 
-    <div class="cenablock-card" style="background: url({{ img }}) center no-repeat; background-size: cover;">
+    <div class="cenablock-card lazy" data-bg="url({{ img }})">
         <div class="cenablock-card-ten">
             <div class="cenablock-card-abs">
                 <div class="cenablock-card-abs-text">

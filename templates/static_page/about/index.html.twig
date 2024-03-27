@@ -13,9 +13,12 @@
                             <div class="slider__items">
                                 {% for i in 1..6 %}
                                     <div class="slider__item">
-                                        <img class="all_block"
-                                             src="{{ asset('/img/amplus/about_company/'~i~'.jpg') | imagine_filter('thumbnail_about_block') }}"
-                                             alt="img">
+                                        <picture>
+                                            <source class="lazy" data-srcset="{{ asset('/img/amplus/about_company/'~i~'.jpg') | imagine_filter('thumbnail_about_block') }}"
+                                                    type="image/webp">
+                                            <img class="all_block lazy" data-src="{{ asset('/img/amplus/about_company/'~i~'.jpg') | imagine_filter('thumbnail_about_block') }}" alt="img">
+                                        </picture>
+
                                     </div>
                                 {% endfor %}
                             </div>

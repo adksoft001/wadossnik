@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="{{ asset('css/about_company.css') }}">
         <link rel="stylesheet" href="{{ asset('css/simple-adaptive-slider.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/remontblock.css') }}">
+        <link rel="stylesheet" href="{{ asset('js/map/map.css') }}">
     {% endblock %}
 
     {% set service_entity = service ?? null %}
@@ -124,7 +125,12 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 <script src="{{ asset('js/simple-adaptive-slider.js') }}"></script>
 <script src="{{ asset('js/slider.js') }}"></script>
-<script src="{{ asset('map/map.js') }}"></script>
+
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".lazy"
+    });
+</script>
 
 </body>
 </html>

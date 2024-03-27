@@ -74,7 +74,7 @@
 
                 <div class="collapse navbar-collapse header-center-menu accordion" id="bs-navbar">
                     <div class="mobmenu-close-wrap">
-                        <div class="mobmenu-close"><img src="/img/icon/close-black.svg" alt="*"></div>
+                        <div class="mobmenu-close"><img class="lazy" data-src="/img/icon/close-black.svg" alt="*"></div>
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="punkt" data-toggle="collapse" data-target="#bs-navbar"><a
@@ -105,7 +105,7 @@
                         <div class="header_card_submenu_item row">
                             {% for service in services %}
                                 <div class="spis-block col-md-6">
-                                    <img class="img-svg" src="{{ asset('img/serviceIcon/'~service.slug~'.svg') }}">
+                                    <img class="lazy img-svg" data-src="{{ asset('img/serviceIcon/'~service.slug~'.svg') }}">
                                         <a href="/{{ service.slug }}">{{ service.name }}</a>
                                 </div>
                             {% endfor %}

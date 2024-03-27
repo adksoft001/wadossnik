@@ -59,7 +59,8 @@ gulp.task('js', function () {
         "public_html/js/mango.js",
         "public_html/js/libs/jquery.modal.js",
         "public_html/js/libs/lazyload.min.js",
-        "public_html/js/seofilter.js"
+        "public_html/js/seofilter.js",
+        "public_html/js/map/map.js",
     ])
 
         .pipe(sourcemaps.init())
